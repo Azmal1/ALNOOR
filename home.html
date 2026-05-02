@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al-Noor Madrasa | Illuminating Minds</title>
+<title>Al-Islah Residential College | Illuminating Minds</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -181,10 +181,12 @@ nav.scrolled {
 
 /* ===== HERO ===== */
 #home {
-  height: 100vh; min-height: 600px;
+  min-height: 100vh; /* Use min-height to allow content to expand */
   background: var(--forest);
   position: relative; overflow: hidden;
   display: flex; align-items: center;
+  padding-top: 72px; /* Offset for fixed navbar */
+  box-sizing: border-box;
 }
 
 .hero-canvas {
@@ -222,6 +224,7 @@ nav.scrolled {
   position: absolute; right: 0; top: 0; bottom: 0; width: 45%;
   display: flex; align-items: center; justify-content: center;
   z-index: 2; overflow: hidden;
+  pointer-events: none;
 }
 .arabic-star {
   font-size: 55vw;
@@ -244,7 +247,7 @@ nav.scrolled {
 
 .hero-content {
   position: relative; z-index: 10;
-  padding: 0 5vw;
+  padding: 0 5vw 100px; /* Keep horizontal padding, add bottom for stats */
   max-width: 700px;
 }
 
@@ -255,7 +258,7 @@ nav.scrolled {
   color: var(--gold-light);
   padding: 6px 16px; border-radius: 20px;
   font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   opacity: 0; transform: translateY(20px);
   animation: fadeUp 0.8s cubic-bezier(.23,1,.32,1) 0.2s forwards;
 }
@@ -276,12 +279,12 @@ nav.scrolled {
 
 .hero-h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(2.8rem, 6vw, 5.5rem); /* Adjusted font size */
   font-weight: 300;
   color: white;
-  line-height: 1.0;
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 8px;
+  margin-bottom: 20px; /* Adjusted spacing */
   opacity: 0; transform: translateY(30px);
   animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 0.5s forwards;
 }
@@ -291,14 +294,16 @@ nav.scrolled {
   color: rgba(255,255,255,0.6);
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 300;
-  line-height: 1.7;
-  margin-bottom: 48px; max-width: 480px;
+  line-height: 1.8; /* Increased for readability */
+  margin-bottom: 32px; /* Adjusted spacing */
+  max-width: 520px;
   opacity: 0; transform: translateY(20px);
   animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 0.7s forwards;
 }
 
 .hero-actions {
   display: flex; gap: 16px; flex-wrap: wrap;
+  margin-top: 32px;
   opacity: 0; transform: translateY(20px);
   animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 0.9s forwards;
 }
@@ -1063,11 +1068,26 @@ footer {
   .form-field.full { grid-column: span 1; }
   #about, #courses, #notices, #gallery, #admissions, #career, #life, #facilities, #welfare, #library, #contact { padding: 80px 6vw; }
   footer { padding: 60px 6vw 32px; }
+  .hero-content { text-align: center; padding-bottom: 80px; }
+  .hero-h1 { font-size: clamp(2.5rem, 10vw, 3rem); line-height: 1.15; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .btn-primary, .btn-outline { padding: 14px 28px; font-size: 0.85rem; }
   .hero-stats { display: none; }
   .scroll-indicator { display: none; }
   .admission-form { padding: 28px; }
   .contact-form-wrap { padding: 28px; }
   .about-pillars { grid-template-columns: 1fr; }
+}
+
+/* Disable cursor on touch devices */
+@media (max-width: 900px), (pointer: coarse) {
+  .cursor, .cursor-ring {
+    display: none !important;
+  }
+  body, button, a, [onclick] {
+    cursor: auto !important;
+  }
 }
 </style>
 </head>
@@ -1082,7 +1102,7 @@ footer {
   <a href="#home" class="nav-logo">
     <div class="nav-logo-icon"><i class="fa-solid fa-mosque"></i></div>
     <div class="nav-logo-text">
-      <strong>Al-Noor Madrasa</strong>
+      <strong>Al-Islah Residential College</strong>
       <span>Illuminating Minds Since 1985</span>
     </div>
   </a>
@@ -1131,7 +1151,7 @@ footer {
   </div>
   <div class="hero-content">
     <div class="hero-badge"><span class="hero-badge-dot"></span> Accepting Applications for 2026–27</div>
-    <div class="hero-arabic">النور — بنگلور</div>
+    <div class="hero-arabic">الاصلاح ریزیڈینشل کالج — مودبیدری</div>
     <h1 class="hero-h1">Nurturing <em>Faith,</em><br>Knowledge &<br>Character</h1>
     <p class="hero-sub">A modern Madrasa rooted in Islamic tradition. Quality education for boys & girls in Qur'an, Fiqh, Arabic, and contemporary sciences — in the heart of Bengaluru.</p>
     <div class="hero-actions">
@@ -1185,7 +1205,7 @@ footer {
     <div class="about-content reveal-right">
       <div class="section-label">Our Story</div>
       <h2 class="section-title">Building Scholars<br>for This World<br><em style="font-style:italic;color:var(--forest-mid)">& the Next</em></h2>
-      <p class="about-desc">Founded in 1985 by visionary scholars in Bengaluru, Al-Noor has grown from a humble madrasa into Karnataka's leading center of Islamic learning — blending timeless tradition with the demands of the modern world.</p>
+      <p class="about-desc">Founded in 1985 by visionary scholars in Mangalore, Al-Islah has grown from a humble madrasa into Karnataka's leading center of Islamic learning — blending timeless tradition with the demands of the modern world.</p>
       <div class="about-pillars">
         <div class="pillar reveal delay-1">
           <div class="pillar-icon-wrap"><i class="fa-solid fa-history"></i></div>
@@ -1408,7 +1428,7 @@ footer {
 <!-- LIFE -->
 <section id="life">
   <div class="section-label reveal">Campus Experience</div>
-  <h2 class="section-title reveal">Life @<br>Al-Noor Madrasa</h2>
+  <h2 class="section-title reveal">Life @<br>Al-Islah Residential College</h2>
   <div class="life-layout">
     <div class="reveal-left">
       <div class="life-quote-block">
@@ -1606,7 +1626,7 @@ footer {
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="footer-logo-text">Al-Noor Madrasa</div>
+      <div class="footer-logo-text">Al-Islah Residential College</div>
       <div class="footer-tagline">A modern center of Islamic learning dedicated to faith, knowledge, and service to humanity. Illuminating minds in Bengaluru since 1985.</div>
     </div>
     <div>
@@ -1639,7 +1659,7 @@ footer {
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Al-Noor Madrasa, Bengaluru. All rights reserved.</span>
+    <span>© 2026 Al-Islah Residential College, Bengaluru. All rights reserved.</span>
     <div class="footer-bottom-right">
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Use</a>
