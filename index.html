@@ -1109,7 +1109,7 @@ footer {
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="courses.htm;">Courses</a></li>
+    <li><a href="courses.html">Courses</a></li>
     <li><a href="notices.html">Notices</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="faculties.html">Faculties</a></li>
@@ -1133,8 +1133,8 @@ footer {
   <a href="courses.html" onclick="closeMenu()">Courses</a>
   <a href="notices.html" onclick="closeMenu()">Notices</a>
   <a href="gallery.html" onclick="closeMenu()">Gallery</a>
-  <a href="faculties.html" onclick="closeMenu()">Facu;ties</a>
-   <a href="#admissions" onclick="closeMenu()">Admissions</a>
+  <a href="faculties.html" onclick="closeMenu()">Faculties</a>
+   <a href="admissions.html" onclick="closeMenu()">Admissions</a>
 
   <a href="#contact" onclick="closeMenu()">Contact</a>
   <a href="#admissions" onclick="closeMenu()" class="mobile-nav-cta">Apply Now</a>
@@ -1198,16 +1198,16 @@ footer {
       <div class="about-stat-card">
         <div class="about-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
         <div>
-          <div class="about-stat-num">2,400+</div>
-          <div class="about-stat-text">Alumni Worldwide</div>
+          <div class="about-stat-num">200+</div>
+          <div class="about-stat-text">Alumni</div>
         </div>
       </div>
-      <div class="about-year-badge">1985<small>Est. Bengaluru</small></div>
+      <div class="about-year-badge">2015<small>Est. Moodbidri</small></div>
     </div>
     <div class="about-content reveal-right">
       <div class="section-label">Our Story</div>
       <h2 class="section-title">Building Scholars<br>for This World<br><em style="font-style:italic;color:var(--forest-mid)">& the Next</em></h2>
-      <p class="about-desc">Founded in 1985 by visionary scholars in Mangalore, Al-Islah has grown from a humble madrasa into Karnataka's leading center of Islamic learning — blending timeless tradition with the demands of the modern world.</p>
+      <p class="about-desc">Founded in 2015 by visionary scholars in Moodbidri Al-Islah has grown from a humble madrasa into Karnataka's leading center of Islamic learning — blending timeless tradition with the demands of the modern world.</p>
       <div class="about-pillars">
         <div class="pillar reveal delay-1">
           <div class="pillar-icon-wrap"><i class="fa-solid fa-history"></i></div>
@@ -1767,8 +1767,16 @@ const galleryData = [
   { alt: "Community iftar", emoji: "🌙", color: "#1b2631" }
 ];
 const grid = document.getElementById('gallery-grid');
-const picIds = [1015,1005,1016,133,201,1009,29,251];
-galleryData.forEach((item, i) => {
+const images = [
+  "img/a4.webp",
+  "img/a2.webp",
+  "img/a17.webp",
+  "img/a1.webp",
+  "img/a12.webp",
+  "img/a14.webp",
+  "img/a18.webp",
+  "img/a8.webp"
+];galleryData.forEach((item, i) => {
   const div = document.createElement('div');
   div.className = 'gallery-item';
   div.innerHTML = `
@@ -1779,7 +1787,7 @@ galleryData.forEach((item, i) => {
       <span class="gallery-item-label">${item.alt}</span>
     </div>
   `;
-  div.onclick = () => openLightbox(`https://picsum.photos/id/${picIds[i]}/900/600`, item.alt);
+  div.onclick = () => openLightbox(images[i], item.alt);
   grid.appendChild(div);
   // Load real image
   const img = new Image();
@@ -1790,7 +1798,7 @@ galleryData.forEach((item, i) => {
     `;
     div.onclick = () => openLightbox(img.src, item.alt);
   };
-  img.src = `https://picsum.photos/id/${picIds[i]}/800/600`;
+img.src = images[i];
 });
 
 function openLightbox(src, alt) {
