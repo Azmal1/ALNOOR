@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al-Noor Madrasa | Illuminating Minds</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
+
 :root {
   --forest: #0d3d25;
   --forest-mid: #166534;
@@ -181,10 +172,12 @@ nav.scrolled {
 
 /* ===== HERO ===== */
 #home {
-  height: 100vh; min-height: 600px;
+  min-height: 100vh; /* Use min-height to allow content to expand */
   background: var(--forest);
   position: relative; overflow: hidden;
   display: flex; align-items: center;
+  padding-top: 72px; /* Offset for fixed navbar */
+  box-sizing: border-box;
 }
 
 .hero-canvas {
@@ -222,6 +215,7 @@ nav.scrolled {
   position: absolute; right: 0; top: 0; bottom: 0; width: 45%;
   display: flex; align-items: center; justify-content: center;
   z-index: 2; overflow: hidden;
+  pointer-events: none;
 }
 .arabic-star {
   font-size: 55vw;
@@ -244,7 +238,7 @@ nav.scrolled {
 
 .hero-content {
   position: relative; z-index: 10;
-  padding: 0 5vw;
+  padding: 0 5vw 100px; /* Keep horizontal padding, add bottom for stats */
   max-width: 700px;
 }
 
@@ -255,7 +249,7 @@ nav.scrolled {
   color: var(--gold-light);
   padding: 6px 16px; border-radius: 20px;
   font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   opacity: 0; transform: translateY(20px);
   animation: fadeUp 0.8s cubic-bezier(.23,1,.32,1) 0.2s forwards;
 }
@@ -276,12 +270,12 @@ nav.scrolled {
 
 .hero-h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(2.8rem, 6vw, 5.5rem); /* Adjusted font size */
   font-weight: 300;
   color: white;
-  line-height: 1.0;
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 8px;
+  margin-bottom: 20px; /* Adjusted spacing */
   opacity: 0; transform: translateY(30px);
   animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 0.5s forwards;
 }
@@ -291,14 +285,16 @@ nav.scrolled {
   color: rgba(255,255,255,0.6);
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 300;
-  line-height: 1.7;
-  margin-bottom: 48px; max-width: 480px;
+  line-height: 1.8; /* Increased for readability */
+  margin-bottom: 32px; /* Adjusted spacing */
+  max-width: 520px;
   opacity: 0; transform: translateY(20px);
   animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 0.7s forwards;
 }
 
 .hero-actions {
   display: flex; gap: 16px; flex-wrap: wrap;
+  margin-top: 32px;
   opacity: 0; transform: translateY(20px);
   animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 0.9s forwards;
 }
@@ -1063,751 +1059,24 @@ footer {
   .form-field.full { grid-column: span 1; }
   #about, #courses, #notices, #gallery, #admissions, #career, #life, #facilities, #welfare, #library, #contact { padding: 80px 6vw; }
   footer { padding: 60px 6vw 32px; }
+  .hero-content { text-align: center; padding-bottom: 80px; }
+  .hero-h1 { font-size: clamp(2.5rem, 10vw, 3rem); line-height: 1.15; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .btn-primary, .btn-outline { padding: 14px 28px; font-size: 0.85rem; }
   .hero-stats { display: none; }
   .scroll-indicator { display: none; }
   .admission-form { padding: 28px; }
   .contact-form-wrap { padding: 28px; }
   .about-pillars { grid-template-columns: 1fr; }
 }
-</style>
-</head>
-<body>
 
-<!-- Custom Cursor -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
-
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#home" class="nav-logo">
-    <div class="nav-logo-icon"><i class="fa-solid fa-mosque"></i></div>
-    <div class="nav-logo-text">
-      <strong>Al-Noor Madrasa</strong>
-      <span>Illuminating Minds Since 1985</span>
-    </div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#courses">Courses</a></li>
-    <li><a href="#notices">Notices</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#career">Career</a></li>
-    <li><a href="#facilities">Facilities</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-cta">
-    <a href="#admissions" class="nav-links" style="list-style:none">
-      <a href="#admissions" class="btn-apply" style="color:inherit">Apply Now</a>
-    </a>
-  </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- Mobile Nav -->
-<div class="mobile-nav" id="mobile-nav">
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#courses" onclick="closeMenu()">Courses</a>
-  <a href="#notices" onclick="closeMenu()">Notices</a>
-  <a href="#gallery" onclick="closeMenu()">Gallery</a>
-  <a href="#admissions" onclick="closeMenu()">Admissions</a>
-  <a href="#career" onclick="closeMenu()">Career</a>
-  <a href="#facilities" onclick="closeMenu()">Facilities</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
-  <a href="#admissions" onclick="closeMenu()" class="mobile-nav-cta">Apply Now</a>
-</div>
-
-<!-- HERO -->
-<section id="home">
-  <canvas class="hero-canvas" id="hero-canvas"></canvas>
-  <div class="geometric-bg"></div>
-  <div class="hero-orb orb1"></div>
-  <div class="hero-orb orb2"></div>
-  <div class="hero-orb orb3"></div>
-  <div class="arabic-pattern">
-    <div class="hero-arch"></div>
-    <div class="arabic-star">✦</div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-badge"><span class="hero-badge-dot"></span> Accepting Applications for 2026–27</div>
-    <div class="hero-arabic">النور — بنگلور</div>
-    <h1 class="hero-h1">Nurturing <em>Faith,</em><br>Knowledge &<br>Character</h1>
-    <p class="hero-sub">A modern Madrasa rooted in Islamic tradition. Quality education for boys & girls in Qur'an, Fiqh, Arabic, and contemporary sciences — in the heart of Bengaluru.</p>
-    <div class="hero-actions">
-      <a href="#courses" class="btn-primary">Explore Courses <i class="fa-solid fa-arrow-right"></i></a>
-      <a href="#admissions" class="btn-outline">Apply Now</a>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-num">450<span>+</span></div>
-      <div class="hero-stat-label">Students Enrolled</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">40<span>+</span></div>
-      <div class="hero-stat-label">Years of Excellence</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">100<span>%</span></div>
-      <div class="hero-stat-label">Hafiz Success Rate</div>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-layout">
-    <div class="about-visual reveal-left">
-      <div class="about-decor"></div>
-      <div class="about-img-main">
-        <div class="about-img-bg">
-          <div style="text-align:center;color:rgba(255,255,255,0.6);padding:40px;">
-            <i class="fa-solid fa-mosque" style="font-size:5rem;display:block;margin-bottom:24px;color:rgba(255,255,255,0.15)"></i>
-            <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;line-height:1.6">"Seek knowledge from the cradle to the grave"</p>
-            <p style="font-size:0.8rem;margin-top:12px;opacity:0.5">— Prophet Muhammad ﷺ</p>
-          </div>
-        </div>
-      </div>
-      <div class="about-stat-card">
-        <div class="about-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-        <div>
-          <div class="about-stat-num">2,400+</div>
-          <div class="about-stat-text">Alumni Worldwide</div>
-        </div>
-      </div>
-      <div class="about-year-badge">1985<small>Est. Bengaluru</small></div>
-    </div>
-    <div class="about-content reveal-right">
-      <div class="section-label">Our Story</div>
-      <h2 class="section-title">Building Scholars<br>for This World<br><em style="font-style:italic;color:var(--forest-mid)">& the Next</em></h2>
-      <p class="about-desc">Founded in 1985 by visionary scholars in Bengaluru, Al-Noor has grown from a humble madrasa into Karnataka's leading center of Islamic learning — blending timeless tradition with the demands of the modern world.</p>
-      <div class="about-pillars">
-        <div class="pillar reveal delay-1">
-          <div class="pillar-icon-wrap"><i class="fa-solid fa-history"></i></div>
-          <div class="pillar-title">Our History</div>
-          <div class="pillar-text">Four decades of nurturing generations of scholars and leaders from across India.</div>
-        </div>
-        <div class="pillar reveal delay-2">
-          <div class="pillar-icon-wrap"><i class="fa-solid fa-bullseye"></i></div>
-          <div class="pillar-title">Our Mission</div>
-          <div class="pillar-text">Cultivating pious, knowledgeable individuals firmly rooted in Qur'an and Sunnah.</div>
-        </div>
-        <div class="pillar reveal delay-3">
-          <div class="pillar-icon-wrap"><i class="fa-solid fa-eye"></i></div>
-          <div class="pillar-title">Our Vision</div>
-          <div class="pillar-text">India's most respected modern Madrasa — tradition meets 21st-century excellence.</div>
-        </div>
-        <div class="pillar reveal delay-4">
-          <div class="pillar-icon-wrap"><i class="fa-solid fa-leaf"></i></div>
-          <div class="pillar-title">Our Values</div>
-          <div class="pillar-text">Taqwa, excellence, community, and compassionate service to all of humanity.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COURSES -->
-<section id="courses">
-  <div class="courses-bg"></div>
-  <div style="position:relative;z-index:1;">
-    <div class="courses-header reveal">
-      <div>
-        <div class="section-label">Academic Programs</div>
-        <h2 class="section-title">Our Courses</h2>
-      </div>
-      <a href="#" class="courses-link">View all programs <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-    <div class="courses-grid">
-      <div class="course-card reveal delay-1" style="--grad: linear-gradient(90deg, #c8973a, #e8b94a)">
-        <div class="course-icon-wrap">📖</div>
-        <div class="course-name">Hifz-ul-Qur'an</div>
-        <div class="course-meta">3 Years • Full-time • All Ages</div>
-        <div class="course-desc">Complete memorization of the Holy Qur'an with Tajweed, Tarteel and foundational Tafseer. Our Huffaz excel in national competitions.</div>
-        <button class="course-btn" onclick="alert('Enrolling in Hifz program! (Demo)')">Enroll Now <i class="fa-solid fa-arrow-right"></i></button>
-      </div>
-      <div class="course-card reveal delay-2" style="--grad: linear-gradient(90deg, #1e8449, #27ae60)">
-        <div class="course-icon-wrap">🕌</div>
-        <div class="course-name">Alimiyyah Program</div>
-        <div class="course-meta">5 Years • Integrated • Age 12+</div>
-        <div class="course-desc">Comprehensive study of Fiqh, Hadith, Aqeedah, and Arabic grammar — producing qualified Islamic scholars.</div>
-        <button class="course-btn" onclick="alert('Enrolling in Alimiyyah! (Demo)')">Enroll Now <i class="fa-solid fa-arrow-right"></i></button>
-      </div>
-      <div class="course-card reveal delay-3" style="--grad: linear-gradient(90deg, #2980b9, #5dade2)">
-        <div class="course-icon-wrap">💻</div>
-        <div class="course-name">Modern + Islamic Sciences</div>
-        <div class="course-meta">4 Years • Hybrid • Age 6+</div>
-        <div class="course-desc">CBSE curriculum alongside Islamic education — English, Mathematics, Science, Computer Studies, and Qur'an.</div>
-        <button class="course-btn" onclick="alert('Enrolling! (Demo)')">Enroll Now <i class="fa-solid fa-arrow-right"></i></button>
-      </div>
-      <div class="course-card reveal delay-4" style="--grad: linear-gradient(90deg, #8e44ad, #a569bd)">
-        <div class="course-icon-wrap">🌸</div>
-        <div class="course-name">Girls' Mahad Program</div>
-        <div class="course-meta">3 Years • Residential • Age 14+</div>
-        <div class="course-desc">Specialized residential program focusing on Qur'an, Islamic ethics, leadership and personal development for young women.</div>
-        <button class="course-btn" onclick="alert('Enrolling! (Demo)')">Enroll Now <i class="fa-solid fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NOTICES -->
-<section id="notices">
-  <div class="section-label reveal">Announcements</div>
-  <h2 class="section-title reveal">Notices &<br>Upcoming Events</h2>
-  <div class="notices-grid">
-    <div class="notice-main reveal-left">
-      <div class="notice-date-big">12</div>
-      <div class="notice-tag tag-event">Event</div>
-      <h3 class="notice-title">Annual Iftar Gathering & Taraweeh Night</h3>
-      <p class="notice-body">Join our community for a blessed evening of Iftar, followed by special Taraweeh prayers led by our senior Huffaz students. Families welcome.</p>
-      <div class="notice-date-text"><i class="fa-regular fa-calendar"></i> 12 April 2026 • 6:30 PM onwards</div>
-      <button class="notice-action" onclick="alert('Registered! (Demo)')">Register Now <i class="fa-solid fa-arrow-right"></i></button>
-    </div>
-    <div class="notices-sidebar">
-      <div class="notice-small reveal-right delay-1">
-        <div class="notice-date-block"><div class="day">05</div><div class="month">May</div></div>
-        <div>
-          <div class="notice-tag tag-notice" style="margin-bottom:8px">Notice</div>
-          <div class="notice-small-title">Final Term Examination Schedule</div>
-          <div class="notice-small-desc">Examinations begin 5th May 2026. Timetable available in student portal.</div>
-        </div>
-      </div>
-      <div class="notice-small reveal-right delay-2">
-        <div class="notice-date-block"><div class="day">20</div><div class="month">May</div></div>
-        <div>
-          <div class="notice-tag tag-event" style="margin-bottom:8px">Event</div>
-          <div class="notice-small-title">Annual Prize Distribution Ceremony</div>
-          <div class="notice-small-desc">Celebrating excellence — merit awards, Hifz certificates, and graduation.</div>
-        </div>
-      </div>
-      <div class="notice-small reveal-right delay-3">
-        <div class="notice-date-block"><div class="day">30</div><div class="month">Apr</div></div>
-        <div>
-          <div class="notice-tag tag-notice" style="margin-bottom:8px">Deadline</div>
-          <div class="notice-small-title">Admissions Deadline 2026-27</div>
-          <div class="notice-small-desc">Last date to submit application forms for all programs.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="gallery-header">
-    <div class="section-label reveal">Campus Life</div>
-    <h2 class="section-title reveal">Gallery</h2>
-  </div>
-  <div class="gallery-grid" id="gallery-grid"></div>
-</section>
-
-<!-- ADMISSIONS -->
-<section id="admissions">
-  <div class="admissions-bg"></div>
-  <div class="admissions-layout">
-    <div class="reveal-left">
-      <div class="section-label" style="color:rgba(200,151,58,0.8)"><span style="background:rgba(200,151,58,0.8)"> </span>Admissions</div>
-      <h2 class="section-title" style="color:white">Join Us for<br>2026–27 Session</h2>
-      <p class="admissions-sub">Submit your application in minutes. Limited seats available — early applicants get priority placement in their preferred program.</p>
-      <div class="admit-facts">
-        <div class="admit-fact">
-          <div class="admit-fact-label">Age Group</div>
-          <div class="admit-fact-val">6–18 yrs</div>
-        </div>
-        <div class="admit-fact">
-          <div class="admit-fact-label">Application Fee</div>
-          <div class="admit-fact-val">₹500</div>
-        </div>
-        <div class="admit-fact">
-          <div class="admit-fact-label">Last Date</div>
-          <div class="admit-fact-val">30 Apr</div>
-        </div>
-      </div>
-    </div>
-    <div class="reveal-right">
-      <div class="admission-form" id="admission-form-wrap">
-        <div class="form-title">Application Form</div>
-        <form onsubmit="handleSubmit(event, 'admission-form-wrap')">
-          <div class="form-grid">
-            <div class="form-field">
-              <label>Full Name</label>
-              <input type="text" placeholder="Ahmed Khan" required>
-            </div>
-            <div class="form-field">
-              <label>Phone Number</label>
-              <input type="tel" placeholder="+91 98765 43210" required>
-            </div>
-            <div class="form-field">
-              <label>Email Address</label>
-              <input type="email" placeholder="parent@email.com" required>
-            </div>
-            <div class="form-field">
-              <label>Course</label>
-              <select required>
-                <option>Hifz-ul-Qur'an</option>
-                <option>Alimiyyah Program</option>
-                <option>Modern + Islamic Sciences</option>
-                <option>Girls' Mahad Program</option>
-              </select>
-            </div>
-            <div class="form-field full">
-              <label>Message / Additional Details</label>
-              <textarea placeholder="Any specific requirements or questions..."></textarea>
-            </div>
-            <div class="form-field full">
-              <button type="submit" class="form-submit">Submit Application <i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CAREER -->
-<section id="career">
-  <div class="section-label reveal">Join Our Team</div>
-  <h2 class="section-title reveal">Career<br>Opportunities</h2>
-  <div class="career-grid">
-    <div class="career-card reveal delay-1">
-      <div class="career-type">Full-time</div>
-      <div class="career-title">Arabic & Qur'an Teacher (Female)</div>
-      <div class="career-desc">Required for girls section. Minimum 3 years experience in Madrasa teaching. Residential preferred.</div>
-      <div class="career-footer">
-        <div class="career-salary">₹45,000/mo</div>
-        <button class="career-apply" onclick="alert('Application submitted! (Demo)')">Apply Now</button>
-      </div>
-    </div>
-    <div class="career-card reveal delay-2">
-      <div class="career-type">Part-time</div>
-      <div class="career-title">Computer Science Instructor</div>
-      <div class="career-desc">Teach basic computing & digital literacy integrated with Islamic values. Flexible hours.</div>
-      <div class="career-footer">
-        <div class="career-salary">₹22,000/mo</div>
-        <button class="career-apply" onclick="alert('Application submitted! (Demo)')">Apply Now</button>
-      </div>
-    </div>
-    <div class="career-card reveal delay-3">
-      <div class="career-type">Contract</div>
-      <div class="career-title">Hostel Warden (Male)</div>
-      <div class="career-desc">Oversee residential students. Strong character and commitment to Islamic discipline required.</div>
-      <div class="career-footer">
-        <div class="career-salary">₹28,000/mo</div>
-        <button class="career-apply" onclick="alert('Application submitted! (Demo)')">Apply Now</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LIFE -->
-<section id="life">
-  <div class="section-label reveal">Campus Experience</div>
-  <h2 class="section-title reveal">Life @<br>Al-Noor Madrasa</h2>
-  <div class="life-layout">
-    <div class="reveal-left">
-      <div class="life-quote-block">
-        <div class="life-quote-mark">"</div>
-        <p class="life-quote">"The environment here shaped my character and love for the Qur'an. I feel prepared for both this world and the Hereafter."</p>
-        <div class="life-quote-author">— Ayesha Fatima, Class of 2025</div>
-      </div>
-      <div class="life-times">
-        <div class="life-time">
-          <span class="life-time-label">Daily Fajr Congregation</span>
-          <span class="life-time-val">5:30 AM</span>
-        </div>
-        <div class="life-time">
-          <span class="life-time-label">Weekly Halaqa Circles</span>
-          <span class="life-time-val">Every Friday</span>
-        </div>
-        <div class="life-time">
-          <span class="life-time-label">Monthly Guest Scholars</span>
-          <span class="life-time-val">Last Sunday</span>
-        </div>
-      </div>
-    </div>
-    <div class="life-visual-grid reveal-right">
-      <div class="life-visual-cell">🕌</div>
-      <div class="life-visual-cell">📚</div>
-      <div class="life-visual-cell">🌳</div>
-      <div class="life-visual-cell">🤝</div>
-    </div>
-  </div>
-</section>
-
-<!-- FACILITIES -->
-<section id="facilities">
-  <div class="section-label reveal" style="color:rgba(200,151,58,0.8)">Campus</div>
-  <h2 class="section-title reveal" style="color:white">World-Class<br>Facilities</h2>
-  <div class="facilities-grid">
-    <div class="facility-card reveal delay-1">
-      <div class="facility-icon"><i class="fa-solid fa-book"></i></div>
-      <div class="facility-name">Central Library</div>
-    </div>
-    <div class="facility-card reveal delay-2">
-      <div class="facility-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
-      <div class="facility-name">Smart Classrooms</div>
-    </div>
-    <div class="facility-card reveal delay-3">
-      <div class="facility-icon"><i class="fa-solid fa-bed"></i></div>
-      <div class="facility-name">Boys & Girls Hostels</div>
-    </div>
-    <div class="facility-card reveal delay-4">
-      <div class="facility-icon"><i class="fa-solid fa-mosque"></i></div>
-      <div class="facility-name">Prayer Hall</div>
-    </div>
-    <div class="facility-card reveal delay-5">
-      <div class="facility-icon"><i class="fa-solid fa-basketball"></i></div>
-      <div class="facility-name">Sports Ground</div>
-    </div>
-    <div class="facility-card reveal delay-5">
-      <div class="facility-icon"><i class="fa-solid fa-utensils"></i></div>
-      <div class="facility-name">Hygienic Mess</div>
-    </div>
-  </div>
-</section>
-
-<!-- WELFARE -->
-<section id="welfare">
-  <div class="section-label reveal">Support</div>
-  <h2 class="section-title reveal">Student Welfare<br>Services</h2>
-  <div class="welfare-grid">
-    <div class="welfare-card reveal delay-1">
-      <div class="welfare-icon"><i class="fa-solid fa-shield-halved"></i></div>
-      <div class="welfare-title">Scholarships</div>
-      <div class="welfare-desc">Merit and need-based financial aid for deserving students — no one is turned away for lack of funds.</div>
-    </div>
-    <div class="welfare-card reveal delay-2">
-      <div class="welfare-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-      <div class="welfare-title">Health & Counseling</div>
-      <div class="welfare-desc">On-campus doctor, psychologist and regular wellness workshops for mental and physical wellbeing.</div>
-    </div>
-    <div class="welfare-card reveal delay-3">
-      <div class="welfare-icon"><i class="fa-solid fa-bus"></i></div>
-      <div class="welfare-title">Transport</div>
-      <div class="welfare-desc">Safe, air-conditioned bus service for day scholars across all major Bengaluru zones.</div>
-    </div>
-    <div class="welfare-card reveal delay-4">
-      <div class="welfare-icon"><i class="fa-solid fa-hand-holding-hand"></i></div>
-      <div class="welfare-title">Mentorship</div>
-      <div class="welfare-desc">One-to-one guidance from senior scholars, alumni and dedicated personal development coaches.</div>
-    </div>
-  </div>
-</section>
-
-<!-- LIBRARY -->
-<section id="library">
-  <div class="library-header">
-    <div>
-      <div class="section-label reveal">Knowledge Hub</div>
-      <h2 class="section-title reveal">Our Library</h2>
-    </div>
-    <div class="library-stats reveal">
-      <div class="lib-stat">
-        <div class="lib-stat-num">12,000+</div>
-        <div class="lib-stat-label">Books & Manuscripts</div>
-      </div>
-      <div class="lib-stat">
-        <div class="lib-stat-num">500+</div>
-        <div class="lib-stat-label">Digital Resources</div>
-      </div>
-    </div>
-  </div>
-  <div class="library-grid">
-    <div class="book-card reveal delay-1">
-      <span class="book-emoji">📖</span>
-      <div class="book-title">Sahih Bukhari</div>
-      <div class="book-cat">Hadith Collection</div>
-    </div>
-    <div class="book-card reveal delay-2">
-      <span class="book-emoji">📖</span>
-      <div class="book-title">Tafsir Ibn Kathir</div>
-      <div class="book-cat">Qur'an Commentary</div>
-    </div>
-    <div class="book-card reveal delay-3">
-      <span class="book-emoji">📖</span>
-      <div class="book-title">Fiqh al-Muamalat</div>
-      <div class="book-cat">Islamic Finance</div>
-    </div>
-    <div class="book-card reveal delay-4">
-      <span class="book-emoji">📖</span>
-      <div class="book-title">Riyad-us-Saliheen</div>
-      <div class="book-cat">Virtues & Manners</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-layout">
-    <div class="contact-info reveal-left">
-      <div class="section-label">Get in Touch</div>
-      <h2 class="section-title">We'd Love<br>to Hear<br>From You</h2>
-      <div class="contact-detail">
-        <div class="contact-item">
-          <div class="contact-item-label">Visit Us</div>
-          <div class="contact-item-val">No. 45, Bannerghatta Main Road,<br>Electronic City Phase 2,<br>Bengaluru, Karnataka 560100</div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-label">Call Us</div>
-          <div class="contact-item-val"><a href="tel:+919876543210">+91 98765 43210</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-label">Email</div>
-          <div class="contact-item-val"><a href="mailto:info@alnoormadrasa.edu.in">info@alnoormadrasa.edu.in</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-label">Office Hours</div>
-          <div class="contact-item-val">Sat–Thu: 8 AM – 5 PM<br>Friday: 8 AM – 12 PM</div>
-        </div>
-      </div>
-      <div class="contact-socials">
-        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
-        <a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="#" class="social-btn"><i class="fa-brands fa-facebook"></i></a>
-      </div>
-    </div>
-    <div class="contact-form-wrap reveal-right" id="contact-form-wrap">
-      <div class="form-title" style="color:white;margin-bottom:32px">Send a Message</div>
-      <form onsubmit="handleSubmit(event, 'contact-form-wrap')">
-        <div class="form-grid">
-          <div class="form-field">
-            <label>Your Name</label>
-            <input type="text" placeholder="Full name" required>
-          </div>
-          <div class="form-field">
-            <label>Phone</label>
-            <input type="tel" placeholder="+91 ...">
-          </div>
-          <div class="form-field full">
-            <label>Email Address</label>
-            <input type="email" placeholder="your@email.com" required>
-          </div>
-          <div class="form-field full">
-            <label>Your Message</label>
-            <textarea placeholder="How can we help you?" required></textarea>
-          </div>
-          <div class="form-field full">
-            <button type="submit" class="contact-submit">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="footer-logo-text">Al-Noor Madrasa</div>
-      <div class="footer-tagline">A modern center of Islamic learning dedicated to faith, knowledge, and service to humanity. Illuminating minds in Bengaluru since 1985.</div>
-    </div>
-    <div>
-      <div class="footer-col-title">Quick Links</div>
-      <div class="footer-links">
-        <a href="#about">About Us</a>
-        <a href="#courses">Courses</a>
-        <a href="#admissions">Admissions</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#notices">Notices</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Community</div>
-      <div class="footer-links">
-        <a href="#life">Student Life</a>
-        <a href="#facilities">Facilities</a>
-        <a href="#welfare">Welfare</a>
-        <a href="#library">Library</a>
-        <a href="#career">Careers</a>
-      </div>
-    </div>
-    <div class="footer-newsletter">
-      <div class="footer-col-title">Stay Updated</div>
-      <div class="newsletter-input-wrap">
-        <input class="newsletter-input" type="email" placeholder="Your email address">
-        <button class="newsletter-btn" onclick="alert('Subscribed! (Demo)')">Subscribe</button>
-      </div>
-      <div class="newsletter-note">Monthly Islamic reminders, events & newsletter.</div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Al-Noor Madrasa, Bengaluru. All rights reserved.</span>
-    <div class="footer-bottom-right">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Use</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</footer>
-
-<!-- Lightbox -->
-<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" onclick="closeLightbox()">×</button>
-    <img id="lightbox-img" src="" alt="">
-  </div>
-</div>
-
-<script>
-// ===== CURSOR =====
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx - 5 + 'px';
-  cursor.style.top = my - 5 + 'px';
-});
-function animateRing() {
-  rx += (mx - rx - 18) * 0.15;
-  ry += (my - ry - 18) * 0.15;
-  ring.style.left = rx + 'px';
-  ring.style.top = ry + 'px';
-  requestAnimationFrame(animateRing);
-}
-animateRing();
-document.querySelectorAll('a, button, .course-card, .notice-small, .pillar, .gallery-item').forEach(el => {
-  el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; ring.style.transform = 'scale(1.5)'; ring.style.opacity = '0.3'; });
-  el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; ring.style.opacity = '0.6'; });
-});
-
-// ===== NAVBAR =====
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-function toggleMenu() {
-  const menu = document.getElementById('mobile-nav');
-  const ham = document.getElementById('hamburger');
-  menu.classList.toggle('open');
-  ham.classList.toggle('active');
-  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-}
-function closeMenu() {
-  document.getElementById('mobile-nav').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-// ===== HERO CANVAS PARTICLES =====
-const canvas = document.getElementById('hero-canvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
-function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-resizeCanvas(); window.addEventListener('resize', resizeCanvas);
-for (let i = 0; i < 60; i++) {
-  particles.push({
-    x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-    r: Math.random() * 1.5 + 0.3,
-    vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-    a: Math.random()
-  });
-}
-function drawParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach(p => {
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
-    if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(200,151,58,${p.a * 0.4})`;
-    ctx.fill();
-  });
-  requestAnimationFrame(drawParticles);
-}
-drawParticles();
-
-// ===== SCROLL REVEAL =====
-const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => observer.observe(el));
-
-// ===== GALLERY =====
-const galleryData = [
-  { alt: "Students in class", emoji: "📚", color: "#0d3d25" },
-  { alt: "Prayer hall", emoji: "🕌", color: "#166534" },
-  { alt: "Library", emoji: "📖", color: "#1a5276" },
-  { alt: "Campus garden", emoji: "🌳", color: "#145a32" },
-  { alt: "Graduation", emoji: "🎓", color: "#4a235a" },
-  { alt: "Sports day", emoji: "⚽", color: "#1a4a6b" },
-  { alt: "Hostel life", emoji: "🏠", color: "#2e4057" },
-  { alt: "Community iftar", emoji: "🌙", color: "#1b2631" }
-];
-const grid = document.getElementById('gallery-grid');
-const picIds = [1015,1005,1016,133,201,1009,29,251];
-galleryData.forEach((item, i) => {
-  const div = document.createElement('div');
-  div.className = 'gallery-item';
-  div.innerHTML = `
-    <div class="gallery-placeholder" style="background: linear-gradient(135deg, ${item.color} 0%, ${item.color}cc 100%)">
-      <div class="gallery-placeholder-icon">${item.emoji}</div>
-    </div>
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-label">${item.alt}</span>
-    </div>
-  `;
-  div.onclick = () => openLightbox(`https://picsum.photos/id/${picIds[i]}/900/600`, item.alt);
-  grid.appendChild(div);
-  // Load real image
-  const img = new Image();
-  img.onload = () => {
-    div.innerHTML = `
-      <img src="${img.src}" alt="${item.alt}">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">${item.alt}</span></div>
-    `;
-    div.onclick = () => openLightbox(img.src, item.alt);
-  };
-  img.src = `https://picsum.photos/id/${picIds[i]}/800/600`;
-});
-
-function openLightbox(src, alt) {
-  const lb = document.getElementById('lightbox');
-  const img = document.getElementById('lightbox-img');
-  img.src = src; img.alt = alt;
-  lb.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox(e) {
-  if (!e || e.target.id === 'lightbox' || e.currentTarget.classList.contains('lightbox-close')) {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
+/* Disable cursor on touch devices */
+@media (max-width: 900px), (pointer: coarse) {
+  .cursor, .cursor-ring {
+    display: none !important;
+  }
+  body, button, a, [onclick] {
+    cursor: auto !important;
   }
 }
-
-// ===== FORM SUBMIT =====
-function handleSubmit(e, wrapId) {
-  e.preventDefault();
-  const wrap = document.getElementById(wrapId);
-  const isDark = wrapId === 'contact-form-wrap';
-  wrap.innerHTML = `
-    <div class="success-state">
-      <span class="success-icon">✓</span>
-      <div class="success-title" style="color:${isDark?'white':'var(--text-dark)'}">JazakAllah Khair!</div>
-      <p class="success-sub" style="color:${isDark?'rgba(255,255,255,0.6)':'var(--text-mid)'}">Your ${wrapId.includes('admission') ? 'application' : 'message'} has been received.<br>We will get back to you shortly, InshaAllah.</p>
-      <button onclick="location.reload()" style="margin-top:24px;padding:12px 28px;background:${isDark?'var(--gold)':'var(--forest)'};color:${isDark?'var(--forest)':'white'};border:none;border-radius:12px;cursor:pointer;font-size:0.9rem">Back to Website</button>
-    </div>
-  `;
-}
-
-// ===== SMOOTH SCROLL =====
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-</script>
-</body>
-</html>
