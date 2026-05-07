@@ -1,3 +1,4 @@
+
 :root {
   --forest: #0d3d25;
   --forest-mid: #166534;
@@ -171,10 +172,12 @@ nav.scrolled {
 
 /* ===== HERO ===== */
 #home {
-  height: 100vh; min-height: 600px;
+  min-height: 100vh; /* Use min-height to allow content to expand */
   background: var(--forest);
   position: relative; overflow: hidden;
   display: flex; align-items: center;
+  padding-top: 72px; /* Offset for fixed navbar */
+  box-sizing: border-box;
 }
 
 .hero-canvas {
@@ -212,6 +215,7 @@ nav.scrolled {
   position: absolute; right: 0; top: 0; bottom: 0; width: 45%;
   display: flex; align-items: center; justify-content: center;
   z-index: 2; overflow: hidden;
+  pointer-events: none;
 }
 .arabic-star {
   font-size: 55vw;
@@ -234,7 +238,7 @@ nav.scrolled {
 
 .hero-content {
   position: relative; z-index: 10;
-  padding: 0 5vw;
+  padding: 0 5vw 100px; /* Keep horizontal padding, add bottom for stats */
   max-width: 700px;
 }
 
@@ -245,7 +249,7 @@ nav.scrolled {
   color: var(--gold-light);
   padding: 6px 16px; border-radius: 20px;
   font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   opacity: 0; transform: translateY(20px);
   animation: fadeUp 0.8s cubic-bezier(.23,1,.32,1) 0.2s forwards;
 }
@@ -266,12 +270,12 @@ nav.scrolled {
 
 .hero-h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(2.8rem, 6vw, 5.5rem); /* Adjusted font size */
   font-weight: 300;
   color: white;
-  line-height: 1.0;
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 8px;
+  margin-bottom: 20px; /* Adjusted spacing */
   opacity: 0; transform: translateY(30px);
   animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 0.5s forwards;
 }
@@ -281,14 +285,16 @@ nav.scrolled {
   color: rgba(255,255,255,0.6);
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 300;
-  line-height: 1.7;
-  margin-bottom: 48px; max-width: 480px;
+  line-height: 1.8; /* Increased for readability */
+  margin-bottom: 32px; /* Adjusted spacing */
+  max-width: 520px;
   opacity: 0; transform: translateY(20px);
   animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 0.7s forwards;
 }
 
 .hero-actions {
   display: flex; gap: 16px; flex-wrap: wrap;
+  margin-top: 32px;
   opacity: 0; transform: translateY(20px);
   animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 0.9s forwards;
 }
@@ -1053,9 +1059,24 @@ footer {
   .form-field.full { grid-column: span 1; }
   #about, #courses, #notices, #gallery, #admissions, #career, #life, #facilities, #welfare, #library, #contact { padding: 80px 6vw; }
   footer { padding: 60px 6vw 32px; }
+  .hero-content { text-align: center; padding-bottom: 80px; }
+  .hero-h1 { font-size: clamp(2.5rem, 10vw, 3rem); line-height: 1.15; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .btn-primary, .btn-outline { padding: 14px 28px; font-size: 0.85rem; }
   .hero-stats { display: none; }
   .scroll-indicator { display: none; }
   .admission-form { padding: 28px; }
   .contact-form-wrap { padding: 28px; }
   .about-pillars { grid-template-columns: 1fr; }
+}
+
+/* Disable cursor on touch devices */
+@media (max-width: 900px), (pointer: coarse) {
+  .cursor, .cursor-ring {
+    display: none !important;
+  }
+  body, button, a, [onclick] {
+    cursor: auto !important;
+  }
 }
