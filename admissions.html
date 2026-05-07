@@ -1,32 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Al-Islah Residential College</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admissions | Al-Islah Residential College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .page-hero { height: 75vh; background: linear-gradient(rgba(7,26,15,0.8), rgba(7,26,15,0.9)), url('https://picsum.photos/id/870/2000/1200') center/cover; }
+  </style>
 </head>
 <body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div id="header"></div>
 
-<!-- Custom Cursor (Required for JS to run smoothly) -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
+  <section class="page-hero">
+    <div class="hero-content" style="text-align:center; color:white;">
+      <h1 class="hero-h1">Admissions 2026-27</h1>
+      <p class="hero-sub">Limited seats. Apply before 30th April 2026.</p>
+    </div>
+  </section>
 
-<!-- NAV -->
-<div id="header"></div>
+  <section style="padding:120px 5vw; background:var(--cream);">
+    <div class="admissions-layout">
+      <div class="reveal-left">
+        <h2 class="section-title">Join Our Growing Family</h2>
+        <div class="admit-facts" style="margin-top:40px;">
+          <div class="admit-fact"><div class="admit-fact-label">Age Group</div><div class="admit-fact-val">6 - 18 Years</div></div>
+          <div class="admit-fact"><div class="admit-fact-label">Application Fee</div><div class="admit-fact-val">₹500</div></div>
+          <div class="admit-fact"><div class="admit-fact-label">Last Date</div><div class="admit-fact-val">30 Apr 2026</div></div>
+        </div>
+      </div>
 
-<!-- ADMISSIONS PAGE CONTENT GOES HERE -->
-<section style="padding: 120px 5vw; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-  <h1 class="section-title">Admissions</h1>
-</section>
+      <div class="reveal-right">
+        <div class="admission-form">
+          <div class="form-title">Application Form</div>
+          <form onsubmit="event.preventDefault(); alert('Application Submitted Successfully! ✅');">
+            <!-- Form fields same as your original but improved styling -->
+            <div class="form-grid">
+              <div class="form-field"><label>Full Name</label><input type="text" required></div>
+              <div class="form-field"><label>Phone</label><input type="tel" required></div>
+              <div class="form-field"><label>Email</label><input type="email" required></div>
+              <div class="form-field"><label>Preferred Course</label>
+                <select required>
+                  <option>Hifz-ul-Qur'an</option>
+                  <option>Alimiyyah Program</option>
+                  <option>Modern + Islamic</option>
+                  <option>Girls Mahad</option>
+                </select>
+              </div>
+              <div class="form-field full"><label>Message</label><textarea></textarea></div>
+              <div class="form-field full"><button type="submit" class="form-submit">Submit Application</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<script src="js/main.js"></script>
-<script src="js/include.js"></script>
+  <div id="footer"></div>
+  <script src="js/include.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
