@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Al-Islah Residential College</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Al-Islah Residential College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div id="header"></div>
 
-<!-- Custom Cursor (Required for JS to run smoothly) -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
+  <section class="page-hero" id="hero-gallery">
+    <div class="hero-content" style="text-align:center; color:white;">
+      <h1 class="hero-h1" style="color:white;">Campus Life Gallery</h1>
+    </div>
+  </section>
 
-<!-- NAV -->
-<div id="header"></div>
+  <section style="padding:120px 5vw; background:var(--cream);">
+    <div class="gallery-page-grid">
+      <div class="gallery-item"><img src="https://picsum.photos/id/201/800/600" alt=""></div>
+      <div class="gallery-item"><img src="https://picsum.photos/id/237/800/600" alt=""></div>
+      <div class="gallery-item"><img src="https://picsum.photos/id/1015/800/600" alt=""></div>
+      <div class="gallery-item"><img src="https://picsum.photos/id/870/800/600" alt=""></div>
+      <div class="gallery-item"><img src="https://picsum.photos/id/133/800/600" alt=""></div>
+      <div class="gallery-item"><img src="https://picsum.photos/id/180/800/600" alt=""></div>
+    </div>
+  </section>
 
-<!-- GALLERY PAGE CONTENT GOES HERE -->
-<section style="padding: 120px 5vw; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-  <h1 class="section-title">Gallery</h1>
-</section>
-
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<script src="js/main.js"></script>
-<script src="js/include.js"></script>
+  <div id="footer"></div>
+  <script src="js/include.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

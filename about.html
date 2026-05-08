@@ -1,32 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Al-Islah Residential College</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Al-Islah Residential College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- Custom Cursor (Required for JS to run smoothly) -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div id="header"></div>
 
-<!-- NAV -->
-<div id="header"></div>
+  <!-- HERO -->
+  <section class="page-hero" id="hero-about">
+    <div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span> Academic Programs 2026-27</div>
+      <h1 class="hero-h1" style="color:white; font-size: clamp(3rem, 7vw, 5.5rem);">About Us</h1>
+    </div>
+  </section>
 
-<!-- ABOUT PAGE CONTENT GOES HERE -->
-<section style="padding: 120px 5vw; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-  <h1 class="section-title">About Us</h1>
-</section>
+  <!-- CONTENT -->
+  <section style="padding: 120px 5vw; background:var(--cream);">
+    <div class="about-layout">
+      <div class="about-visual reveal-left">
+        <div class="about-img-main" style="box-shadow: 0 30px 60px rgba(0,0,0,0.2);">
+          <img src="https://picsum.photos/id/1016/800/1000" alt="Campus" style="width:100%; height:100%; object-fit:cover; border-radius:24px;">
+        </div>
+        <div class="about-year-badge">2015 <small>Since Inception</small></div>
+      </div>
 
-<!-- FOOTER -->
-<div id="footer"></div>
+      <div class="about-content reveal-right">
+        <div class="section-label">Our Journey</div>
+        <h2 class="section-title">Building Leaders for This World and the Hereafter</h2>
+        <p class="about-desc" style="font-size:1.15rem; line-height:1.9;">
+          Founded in 2015 in the spiritual town of Moodbidri, Al-Islah Residential College has grown into one of Karnataka’s most respected Islamic educational institutions. We offer a perfect harmony of Qur’anic memorization, classical Islamic sciences, and modern academics.
+        </p>
 
-<script src="js/main.js"></script>
-<script src="js/include.js"></script>
+        <div class="about-pillars">
+          <div class="pillar reveal delay-1">
+            <div class="pillar-icon-wrap"><i class="fa-solid fa-quran"></i></div>
+            <div class="pillar-title">Rooted in Qur'an</div>
+            <div class="pillar-text">Daily Qur'an classes, Hifz program, and Tafseer with expert scholars.</div>
+          </div>
+          <div class="pillar reveal delay-2">
+            <div class="pillar-icon-wrap"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="pillar-title">Academic Excellence</div>
+            <div class="pillar-text">CBSE-aligned curriculum integrated with Islamic values.</div>
+          </div>
+          <div class="pillar reveal delay-3">
+            <div class="pillar-icon-wrap"><i class="fa-solid fa-heart"></i></div>
+            <div class="pillar-title">Character Building</div>
+            <div class="pillar-text">Focus on Adab, Taqwa, leadership and moral development.</div>
+          </div>
+          <div class="pillar reveal delay-4">
+            <div class="pillar-icon-wrap"><i class="fa-solid fa-users"></i></div>
+            <div class="pillar-title">Community Impact</div>
+            <div class="pillar-text">Producing responsible citizens who serve humanity with compassion.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script src="js/include.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

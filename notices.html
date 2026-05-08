@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Al-Islah Residential College</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notices & Events | Al-Islah Residential College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div id="header"></div>
 
-<!-- Custom Cursor (Required for JS to run smoothly) -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
+  <section class="page-hero" id="hero-notices">
+    <div class="hero-content" style="text-align:center; color:white;">
+      <div class="hero-badge"><span class="hero-badge-dot"></span> Announcements</div>
+      <h1 class="hero-h1" style="color:white;">Notices & Upcoming Events</h1>
+    </div>
+  </section>
 
-<!-- NAV -->
-<div id="header"></div>
+  <section style="padding:120px 5vw; background:var(--parchment);">
+    <div class="notices-grid">
+      <div class="notice-main reveal-left" style="background:white; box-shadow:0 25px 70px rgba(0,0,0,0.1);">
+        <div class="notice-date-big">15</div>
+        <div class="notice-tag tag-event">Event</div>
+        <h3 class="notice-title">Annual Iftar & Taraweeh Program 2026</h3>
+        <p class="notice-body">Join us for a blessed community Iftar followed by Taraweeh prayers led by our Huffaz students. Families are warmly invited.</p>
+        <div class="notice-date-text"><i class="fa-regular fa-calendar"></i> 15 April 2026 • 6:00 PM</div>
+        <button class="notice-action" onclick="alert('Registration Confirmed!')">Register Now</button>
+      </div>
 
-<!-- NOTICES PAGE CONTENT GOES HERE -->
-<section style="padding: 120px 5vw; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-  <h1 class="section-title">Notices</h1>
-</section>
+      <div class="notices-sidebar">
+        <div class="notice-small reveal-right delay-1" style="background:white;">
+          <div class="notice-date-block"><div class="day">05</div><div class="month">MAY</div></div>
+          <div>
+            <div class="notice-tag tag-notice">Notice</div>
+            <div class="notice-small-title">Final Examinations Schedule Released</div>
+            <div class="notice-small-desc">Exams begin from 5th May. Timetable available on student portal.</div>
+          </div>
+        </div>
 
-<!-- FOOTER -->
-<div id="footer"></div>
+        <div class="notice-small reveal-right delay-2" style="background:white;">
+          <div class="notice-date-block"><div class="day">20</div><div class="month">MAY</div></div>
+          <div>
+            <div class="notice-tag tag-event">Event</div>
+            <div class="notice-small-title">Annual Prize Distribution & Graduation</div>
+            <div class="notice-small-desc">Honoring academic and Hifz excellence.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script src="js/main.js"></script>
-<script src="js/include.js"></script>
+  <div id="footer"></div>
+  <script src="js/include.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

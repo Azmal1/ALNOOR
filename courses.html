@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Al-Islah Residential College</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses | Al-Islah Residential College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- Custom Cursor (Required for JS to run smoothly) -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div id="header"></div>
 
-<!-- NAV -->
-<div id="header"></div>
+  <section class="page-hero" id="hero-courses">
+    <div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span> Academic Programs 2026-27</div>
+      <h1 class="hero-h1" style="color:white; font-size: clamp(3rem, 7vw, 5.5rem);">Our Courses</h1>
+    </div>
+  </section>
 
-<!-- COURSES PAGE CONTENT GOES HERE -->
-<section style="padding: 120px 5vw; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-  <h1 class="section-title">Courses</h1>
-</section>
+  <section style="padding:120px 5vw; background:var(--cream);">
+    <div class="courses-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:30px;">
+      
+      <div class="course-card reveal" style="background:white; border:none; box-shadow:0 20px 50px rgba(0,0,0,0.1);">
+        <div class="course-icon-wrap" style="background:linear-gradient(135deg,#c8973a,#e8b94a); color:white; font-size:2.2rem;">📖</div>
+        <div class="course-name">Hifz-ul-Qur'an</div>
+        <div class="course-meta">3 Years • Residential</div>
+        <div class="course-desc">Complete memorization of the Holy Qur'an with Tajweed, Tarteel, and basic Tafseer under expert Huffaz.</div>
+        <button class="course-btn" style="background:var(--forest); color:white;">Enroll Now</button>
+      </div>
 
-<!-- FOOTER -->
-<div id="footer"></div>
+      <div class="course-card reveal delay-1" style="background:white; border:none; box-shadow:0 20px 50px rgba(0,0,0,0.1);">
+        <div class="course-icon-wrap" style="background:linear-gradient(135deg,#166534,#1e8449); color:white; font-size:2.2rem;">🕌</div>
+        <div class="course-name">Alimiyyah Program</div>
+        <div class="course-meta">5-6 Years • Advanced</div>
+        <div class="course-desc">In-depth study of Fiqh, Hadith, Aqeedah, Arabic, and Islamic History.</div>
+        <button class="course-btn" style="background:var(--forest); color:white;">Enroll Now</button>
+      </div>
 
-<script src="js/main.js"></script>
-<script src="js/include.js"></script>
+      <!-- Add more cards similarly -->
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script src="js/include.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
