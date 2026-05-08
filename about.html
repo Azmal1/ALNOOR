@@ -8,22 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
-
-  <style>
-    .page-hero {
-      height: 85vh;
-      background: linear-gradient(rgba(7,26,15,0.75), rgba(7,26,15,0.85)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-    .page-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(transparent, var(--forest));
-    }
-  </style>
 </head>
 <body>
 
@@ -32,7 +16,7 @@
   <div id="header"></div>
 
   <!-- HERO -->
-  <section class="page-hero">
+  <section class="page-hero" id="hero-about">
     <div>
       <div class="hero-badge"><span class="hero-badge-dot"></span> Academic Programs 2026-27</div>
       <h1 class="hero-h1" style="color:white; font-size: clamp(3rem, 7vw, 5.5rem);">About Us</h1>
