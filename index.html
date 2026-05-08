@@ -1142,6 +1142,50 @@ footer {
   </div>
 </section>
 
+<!-- Live Notice Moving Bar -->
+<div class="notice-wrapper">
+    <div class="notice-label">
+        📢 Latest Notice
+    </div>
+
+    <div class="notice-marquee">
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            Admissions are now open for 2026 • New Quran & Hifz batches started • Annual Islamic Program on Sunday • Contact us for admission details
+        </marquee>
+    </div>
+</div>
+
+<style>
+.notice-wrapper{
+    width:100%;
+    background:#0f5132;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    color:#fff;
+    font-family:Arial, sans-serif;
+}
+
+.notice-label{
+    background:#198754;
+    padding:14px 22px;
+    font-weight:bold;
+    white-space:nowrap;
+    font-size:16px;
+}
+
+.notice-marquee{
+    flex:1;
+    padding:10px;
+    font-size:15px;
+    font-weight:500;
+}
+
+.notice-marquee marquee{
+    width:100%;
+}
+</style>
+
 <!-- ABOUT -->
 <section id="about">
   <div class="about-layout">
@@ -1597,5 +1641,6 @@ footer {
 
 <script src="js/main.js"></script>
 <script src="js/include.js"></script>
+
 </body>
 </html>
