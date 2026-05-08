@@ -5,34 +5,239 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery | Al-Islah Residential College</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+    }
+    .heading-font {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero-bg {
+      background-image: linear-gradient(rgba(15, 118, 110, 0.75), rgba(15, 118, 110, 0.85)), 
+                        url('https://picsum.photos/id/1016/2000/1200');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="bg-white text-gray-800 overflow-x-hidden">
+
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
   <div id="header"></div>
 
-  <section class="page-hero" id="hero-gallery">
-    <div class="hero-content" style="text-align:center; color:white;">
-      <h1 class="hero-h1" style="color:white;">Campus Life Gallery</h1>
+  <!-- HERO -->
+  <section class="hero-bg h-screen flex items-center relative text-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl text-sm mb-6">
+        <i class="fa-solid fa-camera"></i>
+        Campus Life
+      </div>
+      
+      <h1 class="heading-font text-6xl md:text-7xl lg:text-8xl font-semibold leading-none mb-6 tracking-tighter">
+        Gallery
+      </h1>
+      
+      <p class="max-w-lg mx-auto text-lg md:text-xl text-white/90">
+        Moments that define life at Al-Islah
+      </p>
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 text-sm">
+      <span>Scroll to explore</span>
+      <i class="fa-solid fa-chevron-down animate-bounce"></i>
     </div>
   </section>
 
-  <section style="padding:120px 5vw; background:var(--cream);">
-    <div class="gallery-page-grid">
-      <div class="gallery-item"><img src="https://picsum.photos/id/201/800/600" alt=""></div>
-      <div class="gallery-item"><img src="https://picsum.photos/id/237/800/600" alt=""></div>
-      <div class="gallery-item"><img src="https://picsum.photos/id/1015/800/600" alt=""></div>
-      <div class="gallery-item"><img src="https://picsum.photos/id/870/800/600" alt=""></div>
-      <div class="gallery-item"><img src="https://picsum.photos/id/133/800/600" alt=""></div>
-      <div class="gallery-item"><img src="https://picsum.photos/id/180/800/600" alt=""></div>
+  <!-- GALLERY SECTION -->
+  <section class="py-20 bg-[#f8f1e9]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <button onclick="filterCategory('all')" 
+                class="active-filter px-6 py-3 bg-teal-700 text-white rounded-3xl text-sm font-medium hover:bg-teal-800 transition-all">
+          All Photos
+        </button>
+        <button onclick="filterCategory('campus')" 
+                class="px-6 py-3 bg-white/70 hover:bg-white rounded-3xl text-sm font-medium transition-all glass-card">
+          Campus
+        </button>
+        <button onclick="filterCategory('academic')" 
+                class="px-6 py-3 bg-white/70 hover:bg-white rounded-3xl text-sm font-medium transition-all glass-card">
+          Academics
+        </button>
+        <button onclick="filterCategory('events')" 
+                class="px-6 py-3 bg-white/70 hover:bg-white rounded-3xl text-sm font-medium transition-all glass-card">
+          Events
+        </button>
+        <button onclick="filterCategory('spiritual')" 
+                class="px-6 py-3 bg-white/70 hover:bg-white rounded-3xl text-sm font-medium transition-all glass-card">
+          Spiritual Life
+        </button>
+      </div>
+
+      <!-- 4 Column Grid Gallery -->
+      <div class="gallery-grid" id="galleryContainer">
+        
+        <div class="gallery-item" data-category="campus">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="https://picsum.photos/id/1016/800/600" alt="Campus" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Main Campus Building</p>
+              <p class="text-sm text-gray-500">Morning sunlight view</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="academic">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="https://picsum.photos/id/201/800/600" alt="Classroom" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Smart Classroom</p>
+              <p class="text-sm text-gray-500">Interactive learning session</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="spiritual">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="https://picsum.photos/id/133/800/600" alt="Masjid" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Masjid Al-Islah</p>
+              <p class="text-sm text-gray-500">Jumu'ah Prayer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="events">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="https://picsum.photos/id/870/800/600" alt="Event" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Annual Day 2025</p>
+              <p class="text-sm text-gray-500">Cultural Programme</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- More Images -->
+        <div class="gallery-item" data-category="campus">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="https://picsum.photos/id/180/800/600" alt="Hostel" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Student Hostel</p>
+              <p class="text-sm text-gray-500">Comfortable living spaces</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="academic">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="https://picsum.photos/id/237/800/600" alt="Library" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Central Library</p>
+              <p class="text-sm text-gray-500">Knowledge Resource Center</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="spiritual">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="https://picsum.photos/id/1015/800/600" alt="Hifz" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Hifz Students</p>
+              <p class="text-sm text-gray-500">Qur'an Memorization</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="events">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="https://picsum.photos/id/201/800/600" alt="Sports" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Sports Day</p>
+              <p class="text-sm text-gray-500">Annual Sports Meet</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
   <div id="footer"></div>
+
   <script src="js/include.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    function filterCategory(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      
+      items.forEach(item => {
+        if (category === 'all') {
+          item.style.display = 'block';
+        } else {
+          item.style.display = item.getAttribute('data-category') === category ? 'block' : 'none';
+        }
+      });
+
+      // Active button styling
+      document.querySelectorAll('button').forEach(btn => {
+        btn.classList.remove('bg-teal-700', 'text-white');
+        if ((category === 'all' && btn.textContent.includes('All')) || 
+            btn.textContent.toLowerCase().includes(category)) {
+          btn.classList.add('bg-teal-700', 'text-white');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
