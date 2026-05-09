@@ -5,62 +5,245 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | Al-Islah Residential College</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+    }
+    .heading-font {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* =========================
+       HERO BANNER
+    ========================== */
+
+    .page-hero{
+      position:relative;
+      height:60vh;
+      min-height:320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.62)),
+      url("img/camimg.jpeg") center center/cover no-repeat;
+    }
+
+    .page-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      radial-gradient(circle at top right,
+      rgba(212,175,55,0.25),
+      transparent 35%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      color:white;
+      width:90%;
+      max-width:850px;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 22px;
+      border-radius:50px;
+      margin-bottom:18px;
+
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      backdrop-filter:blur(10px);
+
+      font-size:13px;
+      letter-spacing:1px;
+      color:#fff;
+    }
+
+    .hero-badge-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--gold);
+    }
+
+    .hero-h1{
+      font-size:4rem;
+      line-height:1.1;
+      font-family:'Cormorant Garamond',serif;
+      margin-bottom:16px;
+      color:white;
+    }
+
+    .hero-content p{
+      font-size:1rem;
+      line-height:1.8;
+      color:#e5e5e5;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px -12px rgb(15 118 110 / 0.25);
+    }
+  </style>
 </head>
-<body>
+<body class="bg-white text-gray-800 overflow-x-hidden">
 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
   <div id="header"></div>
 
   <!-- HERO -->
-  <section class="page-hero" id="hero-about">
-    <div>
-      <div class="hero-badge"><span class="hero-badge-dot"></span> Academic Programs 2026-27</div>
-      <h1 class="hero-h1" style="color:white; font-size: clamp(3rem, 7vw, 5.5rem);">About Us</h1>
+
+    <section class="page-hero">
+
+      <div class="hero-content">
+
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          College Updates & Programs
+        </div>
+
+        <h1 class="hero-h1">
+          Notices & Upcoming Events
+        </h1>
+
+        <p>
+          Stay informed with the latest announcements, Islamic programs,
+          academic events, student activities, and campus celebrations.
+        </p>
+
+      </div>
+
+    </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="py-24 bg-[#f8f1e9]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-16 items-center">
+        
+        <!-- Visual -->
+        <div class="lg:col-span-5">
+          <div class="relative">
+            <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+              <img src="https://picsum.photos/id/1016/800/1200" 
+                   alt="Al-Islah Campus" 
+                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            
+            <div class="absolute -bottom-6 -right-6 bg-white rounded-3xl shadow-xl p-6 text-center">
+              <div class="text-5xl font-bold heading-font text-teal-700">2015</div>
+              <div class="text-sm uppercase tracking-widest text-gray-500">Since Inception</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="lg:col-span-7">
+          <div class="max-w-2xl">
+            <span class="inline-block px-4 py-2 bg-teal-100 text-teal-700 text-sm font-medium rounded-3xl mb-4">
+              Our Journey
+            </span>
+            
+            <h2 class="heading-font text-5xl md:text-6xl font-semibold leading-tight mb-8 text-gray-900">
+              Building Leaders for <span class="text-teal-700">This World</span> and the Hereafter
+            </h2>
+            
+            <p class="text-lg leading-relaxed text-gray-600 mb-10">
+              Founded in 2015 in the historic town of Moodbidri, Al-Islah Residential College has become one of Karnataka’s premier Islamic educational institutions. 
+              We seamlessly blend Qur’anic education, classical Islamic sciences, and contemporary academics.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-8 mb-12">
+              <div>
+                <div class="text-4xl font-semibold text-teal-700">500+</div>
+                <div class="text-sm text-gray-500">Students</div>
+              </div>
+              <div>
+                <div class="text-4xl font-semibold text-teal-700">25+</div>
+                <div class="text-sm text-gray-500">Expert Faculty</div>
+              </div>
+              <div>
+                <div class="text-4xl font-semibold text-teal-700">8</div>
+                <div class="text-sm text-gray-500">Years of Excellence</div>
+              </div>
+            </div>
+
+            <!-- Pillars -->
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-white p-8 rounded-3xl card-hover">
+                <div class="w-12 h-12 bg-teal-100 text-teal-700 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                  <i class="fa-solid fa-quran"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Rooted in Qur'an</h3>
+                <p class="text-gray-600">Daily Hifz, Tafseer, and Qur’anic sciences taught by qualified scholars.</p>
+              </div>
+              
+              <div class="bg-white p-8 rounded-3xl card-hover">
+                <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Academic Excellence</h3>
+                <p class="text-gray-600">CBSE curriculum integrated with strong Islamic values and ethics.</p>
+              </div>
+              
+              <div class="bg-white p-8 rounded-3xl card-hover">
+                <div class="w-12 h-12 bg-rose-100 text-rose-700 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Character Building</h3>
+                <p class="text-gray-600">Emphasis on Adab, Taqwa, leadership, and moral development.</p>
+              </div>
+              
+              <div class="bg-white p-8 rounded-3xl card-hover">
+                <div class="w-12 h-12 bg-sky-100 text-sky-700 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Community Impact</h3>
+                <p class="text-gray-600">Nurturing compassionate individuals who serve society with excellence.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CONTENT -->
-  <section style="padding: 120px 5vw; background:var(--cream);">
-    <div class="about-layout">
-      <div class="about-visual reveal-left">
-        <div class="about-img-main" style="box-shadow: 0 30px 60px rgba(0,0,0,0.2);">
-          <img src="https://picsum.photos/id/1016/800/1000" alt="Campus" style="width:100%; height:100%; object-fit:cover; border-radius:24px;">
+  <!-- Optional Mission & Vision -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-teal-50 p-10 rounded-3xl">
+          <h3 class="text-teal-700 uppercase text-sm tracking-widest font-medium mb-3">Our Mission</h3>
+          <p class="text-2xl leading-tight heading-font">
+            To develop well-rounded individuals who excel academically, remain deeply rooted in Islamic principles, and contribute positively to society.
+          </p>
         </div>
-        <div class="about-year-badge">2015 <small>Since Inception</small></div>
-      </div>
-
-      <div class="about-content reveal-right">
-        <div class="section-label">Our Journey</div>
-        <h2 class="section-title">Building Leaders for This World and the Hereafter</h2>
-        <p class="about-desc" style="font-size:1.15rem; line-height:1.9;">
-          Founded in 2015 in the spiritual town of Moodbidri, Al-Islah Residential College has grown into one of Karnataka’s most respected Islamic educational institutions. We offer a perfect harmony of Qur’anic memorization, classical Islamic sciences, and modern academics.
-        </p>
-
-        <div class="about-pillars">
-          <div class="pillar reveal delay-1">
-            <div class="pillar-icon-wrap"><i class="fa-solid fa-quran"></i></div>
-            <div class="pillar-title">Rooted in Qur'an</div>
-            <div class="pillar-text">Daily Qur'an classes, Hifz program, and Tafseer with expert scholars.</div>
-          </div>
-          <div class="pillar reveal delay-2">
-            <div class="pillar-icon-wrap"><i class="fa-solid fa-graduation-cap"></i></div>
-            <div class="pillar-title">Academic Excellence</div>
-            <div class="pillar-text">CBSE-aligned curriculum integrated with Islamic values.</div>
-          </div>
-          <div class="pillar reveal delay-3">
-            <div class="pillar-icon-wrap"><i class="fa-solid fa-heart"></i></div>
-            <div class="pillar-title">Character Building</div>
-            <div class="pillar-text">Focus on Adab, Taqwa, leadership and moral development.</div>
-          </div>
-          <div class="pillar reveal delay-4">
-            <div class="pillar-icon-wrap"><i class="fa-solid fa-users"></i></div>
-            <div class="pillar-title">Community Impact</div>
-            <div class="pillar-text">Producing responsible citizens who serve humanity with compassion.</div>
-          </div>
+        
+        <div class="bg-amber-50 p-10 rounded-3xl">
+          <h3 class="text-amber-700 uppercase text-sm tracking-widest font-medium mb-3">Our Vision</h3>
+          <p class="text-2xl leading-tight heading-font">
+            To become a center of excellence in integrated Islamic and modern education, producing leaders who illuminate the world with knowledge and faith.
+          </p>
         </div>
       </div>
     </div>
@@ -70,5 +253,18 @@
 
   <script src="js/include.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    // Optional: Smooth scroll for any internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

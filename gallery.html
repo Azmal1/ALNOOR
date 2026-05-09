@@ -5,33 +5,302 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery | Al-Islah Residential College</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+    }
+    .heading-font {
+      font-family: 'Playfair Display', serif;
+    }
+
+        /* =========================
+       HERO BANNER
+    ========================== */
+
+    .page-hero{
+      position:relative;
+      height:60vh;
+      min-height:320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.62)),
+      url("img/camimg.jpeg") center center/cover no-repeat;
+    }
+
+    .page-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      radial-gradient(circle at top right,
+      rgba(212,175,55,0.25),
+      transparent 35%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      color:white;
+      width:90%;
+      max-width:850px;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 22px;
+      border-radius:50px;
+      margin-bottom:18px;
+
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      backdrop-filter:blur(10px);
+
+      font-size:13px;
+      letter-spacing:1px;
+      color:#fff;
+    }
+
+    .hero-badge-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--gold);
+    }
+
+    .hero-h1{
+      font-size:4rem;
+      line-height:1.1;
+      font-family:'Cormorant Garamond',serif;
+      margin-bottom:16px;
+      color:white;
+    }
+
+    .hero-content p{
+      font-size:1rem;
+      line-height:1.8;
+      color:#e5e5e5;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="bg-white text-gray-800 overflow-x-hidden">
+
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
   <div id="header"></div>
 
-  <section class="page-hero" id="hero-gallery">
-    <div class="hero-content" style="text-align:center; color:white;">
-      <h1 class="hero-h1" style="color:white;">Campus Life Gallery</h1>
+  <!-- HERO -->
+
+  <section class="page-hero">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        College Updates & Programs
+      </div>
+
+      <h1 class="hero-h1">
+        Notices & Upcoming Events
+      </h1>
+
+      <p>
+        Stay informed with the latest announcements, Islamic programs,
+        academic events, student activities, and campus celebrations.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="py-20 bg-[#f8f1e9]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <button onclick="filterCategory('all')" 
+                class="active-filter px-6 py-3 bg-teal-700 text-white rounded-3xl text-sm font-medium hover:bg-teal-800 transition-all">
+          All Photos
+        </button>
+        <button onclick="filterCategory('campus')" 
+                class="px-6 py-3 bg-white/70 hover:bg-white rounded-3xl text-sm font-medium transition-all glass-card">
+          Campus
+        </button>
+        <button onclick="filterCategory('academic')" 
+                class="px-6 py-3 bg-white/70 hover:bg-white rounded-3xl text-sm font-medium transition-all glass-card">
+          Academics
+        </button>
+        <button onclick="filterCategory('events')" 
+                class="px-6 py-3 bg-white/70 hover:bg-white rounded-3xl text-sm font-medium transition-all glass-card">
+          Events
+        </button>
+        <button onclick="filterCategory('spiritual')" 
+                class="px-6 py-3 bg-white/70 hover:bg-white rounded-3xl text-sm font-medium transition-all glass-card">
+          Spiritual Life
+        </button>
+      </div>
+
+      <!-- 4 Column Grid Gallery -->
+      <div class="gallery-grid" id="galleryContainer">
+        
+        <div class="gallery-item" data-category="campus">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="img/a1.webp" alt="Campus" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Main Campus Building</p>
+              <p class="text-sm text-gray-500">Campus garden view</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="academic">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="img/a4.webp" alt="Classroom" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Smart Classroom</p>
+              <p class="text-sm text-gray-500">Students in class</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="spiritual">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="img/a2.webp" alt="Masjid" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Masjid Al-Islah</p>
+              <p class="text-sm text-gray-500">Prayer hall</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="events">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="img/a12.webp" alt="Event" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Graduation Ceremony</p>
+              <p class="text-sm text-gray-500">Celebrating success</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- More Images -->
+        <div class="gallery-item" data-category="campus">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="img/a18.webp" alt="Hostel" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Student Hostel</p>
+              <p class="text-sm text-gray-500">Comfortable living spaces</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="academic">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="img/a17.webp" alt="Library" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Central Library</p>
+              <p class="text-sm text-gray-500">Knowledge Resource Center</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="spiritual">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="img/a8.webp" alt="Community Iftar" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Community Iftar</p>
+              <p class="text-sm text-gray-500">Blessed gatherings</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="events">
+          <div class="glass-card rounded-3xl overflow-hidden h-full">
+            <img src="img/a14.webp" alt="Sports" 
+                 class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+            <div class="p-5">
+              <p class="font-medium text-gray-800">Sports Day</p>
+              <p class="text-sm text-gray-500">Annual Sports Meet</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
-  <section style="padding:120px 5vw; background:var(--cream);">
-    <div class="gallery-page-grid">
-      <div class="gallery-item"><img src="https://picsum.photos/id/201/800/600" alt=""></div>
-      <div class="gallery-item"><img src="https://picsum.photos/id/237/800/600" alt=""></div>
-      <div class="gallery-item"><img src="https://picsum.photos/id/1015/800/600" alt=""></div>
-      <div class="gallery-item"><img src="https://picsum.photos/id/870/800/600" alt=""></div>
-      <div class="gallery-item"><img src="https://picsum.photos/id/133/800/600" alt=""></div>
-      <div class="gallery-item"><img src="https://picsum.photos/id/180/800/600" alt=""></div>
+  <!-- Custom Gallery Lightbox -->
+  <div id="custom-lightbox" class="fixed inset-0 z-[9999] bg-black/90 hidden items-center justify-center transition-opacity duration-300 opacity-0" onclick="closeGalleryLightbox()">
+    <div class="relative w-full max-w-6xl h-full flex items-center justify-center p-4 md:p-12" onclick="event.stopPropagation()">
+      <!-- Close Button -->
+      <button onclick="closeGalleryLightbox()" class="absolute top-4 right-4 md:top-6 md:right-6 text-white/60 hover:text-white text-5xl font-light transition-colors z-50 leading-none" title="Close">&times;</button>
+      <!-- Prev Button -->
+      <button onclick="prevImage()" class="absolute left-4 md:left-8 text-white/60 hover:text-white text-4xl transition-colors z-50" id="btn-prev"><i class="fa-solid fa-chevron-left"></i></button>
+      <!-- Image Container -->
+      <div class="relative w-full h-full flex items-center justify-center">
+        <img id="custom-lightbox-img" src="" alt="Gallery Image" class="max-w-full max-h-[90vh] object-contain rounded-md shadow-2xl transition-all duration-300 scale-95">
+      </div>
+      <!-- Next Button -->
+      <button onclick="nextImage()" class="absolute right-4 md:right-8 text-white/60 hover:text-white text-4xl transition-colors z-50" id="btn-next"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
-  </section>
+  </div>
 
   <div id="footer"></div>
+
   <script src="js/include.js"></script>
   <script src="js/main.js"></script>
 </body>

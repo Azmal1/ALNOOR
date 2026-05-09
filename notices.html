@@ -1,61 +1,804 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Notices & Events | Al-Islah Residential College</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <style>
+
+    :root{
+      --primary:#0d3d25;
+      --secondary:#14532d;
+      --gold:#d4af37;
+      --light:#f7f4ec;
+      --white:#ffffff;
+      --text:#555;
+      --shadow:0 12px 35px rgba(0,0,0,0.08);
+      --radius:28px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'DM Sans',sans-serif;
+      background:var(--light);
+      overflow-x:hidden;
+      color:#222;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    /* =========================
+       HERO BANNER
+    ========================== */
+
+    .page-hero{
+      position:relative;
+      height:42vh;
+      min-height:320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.62)),
+      url("img/camimg.jpeg") center center/cover no-repeat;
+    }
+
+    .page-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      radial-gradient(circle at top right,
+      rgba(212,175,55,0.25),
+      transparent 35%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      color:white;
+      width:90%;
+      max-width:850px;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 22px;
+      border-radius:50px;
+      margin-bottom:18px;
+
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      backdrop-filter:blur(10px);
+
+      font-size:13px;
+      letter-spacing:1px;
+      color:#fff;
+    }
+
+    .hero-badge-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--gold);
+    }
+
+    .hero-h1{
+      font-size:4rem;
+      line-height:1.1;
+      font-family:'Cormorant Garamond',serif;
+      margin-bottom:16px;
+      color:white;
+    }
+
+    .hero-content p{
+      font-size:1rem;
+      line-height:1.8;
+      color:#e5e5e5;
+      max-width:700px;
+      margin:auto;
+    }
+
+    /* =========================
+       ABOUT SECTION
+    ========================== */
+
+    .about-section{
+      padding:80px 5vw;
+      background:
+      linear-gradient(135deg,#ffffff 0%,#f7f4ec 100%);
+    }
+
+    .about-wrapper{
+      max-width:1300px;
+      margin:auto;
+
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .about-image{
+      border-radius:var(--radius);
+      overflow:hidden;
+      position:relative;
+      height:420px;
+      box-shadow:var(--shadow);
+    }
+
+    .about-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:0.5s;
+    }
+
+    .about-image:hover img{
+      transform:scale(1.08);
+    }
+
+    .about-content h2{
+      font-size:3rem;
+      color:var(--primary);
+      margin-bottom:20px;
+      line-height:1.1;
+      font-family:'Cormorant Garamond',serif;
+    }
+
+    .about-content p{
+      color:var(--text);
+      line-height:1.9;
+      margin-bottom:18px;
+      font-size:1rem;
+    }
+
+    .about-highlights{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .highlight-box{
+      background:white;
+      flex:1;
+      min-width:180px;
+      padding:20px;
+      border-radius:22px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .highlight-box h3{
+      color:var(--primary);
+      margin-bottom:8px;
+      font-size:1.8rem;
+    }
+
+    .highlight-box p{
+      margin:0;
+      color:#666;
+      font-size:14px;
+    }
+
+    /* =========================
+       SECTION TITLE
+    ========================== */
+
+    .section-title{
+      text-align:center;
+      margin-bottom:55px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      color:var(--primary);
+      margin-bottom:10px;
+      font-family:'Cormorant Garamond',serif;
+    }
+
+    .section-title p{
+      color:#666;
+      font-size:15px;
+    }
+
+    /* =========================
+       EVENTS SECTION
+    ========================== */
+
+    .events-section{
+      padding:100px 5vw;
+    }
+
+    .notices-grid{
+      max-width:1300px;
+      margin:auto;
+
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:30px;
+    }
+
+    /* MAIN EVENT */
+
+    .notice-main{
+      background:white;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .notice-main img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+    }
+
+    .notice-content{
+      padding:35px;
+    }
+
+    .notice-tag{
+      display:inline-block;
+      padding:8px 18px;
+      border-radius:50px;
+      font-size:12px;
+      font-weight:600;
+      margin-bottom:18px;
+    }
+
+    .tag-event{
+      background:#e7f7eb;
+      color:#166534;
+    }
+
+    .tag-notice{
+      background:#fff5db;
+      color:#a16207;
+    }
+
+    .notice-title{
+      font-size:2rem;
+      margin-bottom:15px;
+      color:var(--primary);
+      font-family:'Cormorant Garamond',serif;
+      line-height:1.2;
+    }
+
+    .notice-body{
+      color:#666;
+      line-height:1.9;
+      margin-bottom:25px;
+    }
+
+    .notice-date-text{
+      color:#777;
+      margin-bottom:25px;
+      font-size:15px;
+    }
+
+    .notice-action{
+      border:none;
+      background:var(--primary);
+      color:white;
+      padding:14px 30px;
+      border-radius:50px;
+      cursor:pointer;
+      transition:0.3s;
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .notice-action:hover{
+      background:var(--secondary);
+      transform:translateY(-2px);
+    }
+
+    /* SIDEBAR EVENTS */
+
+    .notices-sidebar{
+      display:flex;
+      flex-direction:column;
+      gap:25px;
+    }
+
+    .notice-small{
+      background:white;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:0.3s;
+    }
+
+    .notice-small:hover{
+      transform:translateY(-5px);
+    }
+
+    .notice-small img{
+      width:100%;
+      height:190px;
+      object-fit:cover;
+    }
+
+    .notice-small-content{
+      padding:24px;
+    }
+
+    .notice-small-title{
+      font-size:1.5rem;
+      color:var(--primary);
+      margin:12px 0;
+      line-height:1.2;
+      font-family:'Cormorant Garamond',serif;
+    }
+
+    .notice-small-desc{
+      color:#666;
+      line-height:1.8;
+      font-size:14px;
+    }
+
+    /* =========================
+       VIDEO SECTION
+    ========================== */
+
+    .video-section{
+      padding:100px 5vw;
+      background:
+      linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
+      url("img/video-bg.webp") center/cover no-repeat;
+    }
+
+    .video-wrapper{
+      max-width:1200px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .video-wrapper h2{
+      color:white;
+      font-size:3rem;
+      margin-bottom:15px;
+      font-family:'Cormorant Garamond',serif;
+    }
+
+    .video-wrapper p{
+      color:#d1d5db;
+      margin-bottom:40px;
+      line-height:1.8;
+    }
+
+    .video-box{
+      overflow:hidden;
+      border-radius:30px;
+      box-shadow:0 20px 45px rgba(0,0,0,0.35);
+    }
+
+    .video-box video{
+      width:100%;
+      display:block;
+    }
+
+    /* =========================
+       GALLERY
+    ========================== */
+
+    .gallery-section{
+      padding:100px 5vw;
+      background:white;
+    }
+
+    .gallery-grid{
+      max-width:1300px;
+      margin:auto;
+
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+    }
+
+    .gallery-item{
+      overflow:hidden;
+      border-radius:25px;
+      position:relative;
+      height:280px;
+      box-shadow:var(--shadow);
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:0.5s;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.1);
+    }
+
+    /* =========================
+       MOBILE RESPONSIVE
+    ========================== */
+
+    @media(max-width:1100px){
+
+      .hero-h1{
+        font-size:3.2rem;
+      }
+
+      .about-wrapper,
+      .notices-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      .page-hero{
+        height:34vh;
+        min-height:260px;
+      }
+
+      .hero-h1{
+        font-size:2.4rem;
+      }
+
+      .hero-content p{
+        font-size:14px;
+        line-height:1.7;
+      }
+
+      .section-title h2,
+      .about-content h2,
+      .video-wrapper h2{
+        font-size:2.2rem;
+      }
+
+      .notice-title{
+        font-size:1.8rem;
+      }
+
+      .about-image{
+        height:300px;
+      }
+
+      .notice-main img{
+        height:240px;
+      }
+
+      .notice-small img{
+        height:180px;
+      }
+
+      .notice-content,
+      .notice-small-content{
+        padding:24px;
+      }
+
+      .gallery-item{
+        height:240px;
+      }
+
+      .video-section,
+      .gallery-section,
+      .events-section{
+        padding:80px 5vw;
+      }
+
+    }
+
+    @media(max-width:480px){
+
+      .hero-h1{
+        font-size:2rem;
+      }
+
+      .hero-badge{
+        font-size:11px;
+        padding:8px 16px;
+      }
+
+      .about-content h2,
+      .section-title h2,
+      .video-wrapper h2{
+        font-size:1.9rem;
+      }
+
+      .notice-title{
+        font-size:1.5rem;
+      }
+
+      .notice-small-title{
+        font-size:1.3rem;
+      }
+
+      .notice-action{
+        width:100%;
+      }
+
+      .about-section,
+      .events-section,
+      .video-section,
+      .gallery-section{
+        padding:70px 5vw;
+      }
+
+    }
+
+  </style>
+
 </head>
+
 <body>
+
+  <!-- Custom Cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- HEADER -->
   <div id="header"></div>
 
-  <section class="page-hero" id="hero-notices">
-    <div class="hero-content" style="text-align:center; color:white;">
-      <div class="hero-badge"><span class="hero-badge-dot"></span> Announcements</div>
-      <h1 class="hero-h1" style="color:white;">Notices & Upcoming Events</h1>
+  <!-- HERO -->
+
+  <section class="page-hero">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        College Updates & Programs
+      </div>
+
+      <h1 class="hero-h1">
+        Notices & Upcoming Events
+      </h1>
+
+      <p>
+        Stay informed with the latest announcements, Islamic programs,
+        academic events, student activities, and campus celebrations.
+      </p>
+
     </div>
+
   </section>
 
-  <section style="padding:120px 5vw; background:var(--parchment);">
-    <div class="notices-grid">
-      <div class="notice-main reveal-left" style="background:white; box-shadow:0 25px 70px rgba(0,0,0,0.1);">
-        <div class="notice-date-big">15</div>
-        <div class="notice-tag tag-event">Event</div>
-        <h3 class="notice-title">Annual Iftar & Taraweeh Program 2026</h3>
-        <p class="notice-body">Join us for a blessed community Iftar followed by Taraweeh prayers led by our Huffaz students. Families are warmly invited.</p>
-        <div class="notice-date-text"><i class="fa-regular fa-calendar"></i> 15 April 2026 • 6:00 PM</div>
-        <button class="notice-action" onclick="alert('Registration Confirmed!')">Register Now</button>
+  <!-- ABOUT SECTION -->
+
+  <section class="about-section">
+
+    <div class="about-wrapper">
+
+      <div class="about-image">
+        <img src="img/a2.webp" alt="">
       </div>
+
+      <div class="about-content">
+
+        <h2>
+          Building Knowledge, Faith & Leadership
+        </h2>
+
+        <p>
+          Al-Islah Residential College regularly organizes educational,
+          spiritual, and cultural events that strengthen academic excellence
+          and Islamic values among students.
+        </p>
+
+        <p>
+          From Iftar gatherings to graduation ceremonies, every program creates
+          memorable experiences for students, parents, and the community.
+        </p>
+
+        <div class="about-highlights">
+
+          <div class="highlight-box">
+            <h3>25+</h3>
+            <p>Programs Every Year</p>
+          </div>
+
+          <div class="highlight-box">
+            <h3>1000+</h3>
+            <p>Participants & Families</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EVENTS -->
+
+  <section class="events-section">
+
+    <div class="section-title">
+      <h2>Featured Announcements</h2>
+      <p>Latest college events and important updates</p>
+    </div>
+
+    <div class="notices-grid">
+
+      <!-- MAIN EVENT -->
+
+      <div class="notice-main">
+
+        <img src="img/sm1.jpeg" alt="">
+
+        <div class="notice-content">
+
+          <div class="notice-tag tag-event">
+            Featured Event
+          </div>
+
+          <h3 class="notice-title">
+            Annual Iftar & Taraweeh Program 2026
+          </h3>
+
+          <p class="notice-body">
+            Join us for a blessed community Iftar followed by Taraweeh prayers
+            led by our Huffaz students and scholars.
+          </p>
+
+          <div class="notice-date-text">
+            <i class="fa-regular fa-calendar"></i>
+            15 April 2026 • 6:00 PM
+          </div>
+
+          <button class="notice-action">
+            Register Now
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- SIDE EVENTS -->
 
       <div class="notices-sidebar">
-        <div class="notice-small reveal-right delay-1" style="background:white;">
-          <div class="notice-date-block"><div class="day">05</div><div class="month">MAY</div></div>
-          <div>
-            <div class="notice-tag tag-notice">Notice</div>
-            <div class="notice-small-title">Final Examinations Schedule Released</div>
-            <div class="notice-small-desc">Exams begin from 5th May. Timetable available on student portal.</div>
+
+        <div class="notice-small">
+
+          <img src="img/exam.webp" alt="">
+
+          <div class="notice-small-content">
+
+            <div class="notice-tag tag-notice">
+              Notice
+            </div>
+
+            <div class="notice-small-title">
+              Final Examinations Schedule Released
+            </div>
+
+            <div class="notice-small-desc">
+              Exams begin from 5th May. Timetable available on the student portal.
+            </div>
+
           </div>
+
         </div>
 
-        <div class="notice-small reveal-right delay-2" style="background:white;">
-          <div class="notice-date-block"><div class="day">20</div><div class="month">MAY</div></div>
-          <div>
-            <div class="notice-tag tag-event">Event</div>
-            <div class="notice-small-title">Annual Prize Distribution & Graduation</div>
-            <div class="notice-small-desc">Honoring academic and Hifz excellence.</div>
+        <div class="notice-small">
+
+          <img src="img/graduation.webp" alt="">
+
+          <div class="notice-small-content">
+
+            <div class="notice-tag tag-event">
+              Upcoming Event
+            </div>
+
+            <div class="notice-small-title">
+              Prize Distribution & Graduation Ceremony
+            </div>
+
+            <div class="notice-small-desc">
+              Honoring academic excellence and Hifz achievements of students.
+            </div>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
 
+  <!-- VIDEO SECTION -->
+
+  <section class="video-section">
+
+    <div class="video-wrapper">
+
+      <h2>Campus Event Highlights</h2>
+
+      <p>
+        Experience memorable moments from our recent college programs,
+        Islamic gatherings, and student celebrations.
+      </p>
+
+      <div class="video-box">
+
+        <video controls autoplay muted loop>
+          <source src="video/campus-event.mp4" type="video/mp4">
+        </video>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section class="gallery-section">
+
+    <div class="section-title">
+      <h2>Event Gallery</h2>
+      <p>Beautiful moments from our campus activities</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <img src="img/gallery1.webp" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="img/gallery2.webp" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="img/gallery3.webp" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="img/gallery4.webp" alt="">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
   <div id="footer"></div>
+
+  <!-- JS -->
   <script src="js/include.js"></script>
   <script src="js/main.js"></script>
+
 </body>
 </html>
