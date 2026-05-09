@@ -648,7 +648,9 @@ section {
   background: var(--cream);
   padding: 120px 5vw;
 }
-.gallery-header { margin-bottom: 56px; }
+.gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+.gallery-link { color: var(--text-dark); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
+.gallery-link:hover { color: var(--gold); }
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1073,7 +1075,7 @@ section {
   .career-grid { grid-template-columns: 1fr 1fr; }
   .welfare-grid { grid-template-columns: 1fr 1fr; }
   .library-grid { grid-template-columns: 1fr 1fr; }
-  .library-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .library-header, .gallery-header { flex-direction: column; align-items: flex-start; gap: 24px; }
   .hero-stats { gap: 24px; flex-wrap: wrap; }
   .admit-facts { grid-template-columns: 1fr; }
 }
