@@ -370,18 +370,47 @@ nav.scrolled {
 
 /* ===== INNER PAGES HERO ===== */
 .page-hero {
+  position: relative;
+  min-height: 45vh; /* Allows content to expand gracefully without internal scrolling */
   display: flex; align-items: center; justify-content: center; text-align: center;
-  padding-top: 72px; position: relative;
-  padding-top: 120px; position: relative; box-sizing: border-box;
+  padding-top: 72px; /* Offset for fixed navbar */
+  padding-bottom: 40px; /* Provides breathing room below text */
+  box-sizing: border-box;
+  overflow: hidden; /* Keeps the glow overlay contained */
+
+  background:
+  linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.62)),
+  url("../img/camimg.jpeg") center center/cover no-repeat;
 }
-#hero-about { height: 85vh; background: linear-gradient(rgba(7,26,15,0.75), rgba(7,26,15,0.85)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat; }
-#hero-about::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent, var(--forest)); z-index: 1; pointer-events: none; }
-#hero-admissions { height: 75vh; background: linear-gradient(rgba(7,26,15,0.8), rgba(7,26,15,0.9)), url('https://picsum.photos/id/870/2000/1200') center/cover; }
-#hero-contact { height: 65vh; background: linear-gradient(rgba(7,26,15,0.8), rgba(7,26,15,0.9)), url('https://picsum.photos/id/1074/2000/1200') center/cover; }
-#hero-gallery { height: 75vh; background: linear-gradient(rgba(7,26,15,0.75), rgba(7,26,15,0.85)), url('https://picsum.photos/id/133/2000/1200') center/cover; }
-#hero-courses { height: 75vh; background: linear-gradient(rgba(7,26,15,0.8), rgba(7,26,15,0.85)), url('https://picsum.photos/id/201/2000/1200') center/cover; }
-#hero-faculties { height: 70vh; background: linear-gradient(rgba(7,26,15,0.8), rgba(7,26,15,0.9)), url('https://picsum.photos/id/866/2000/1200') center/cover; }
-#hero-notices { height: 70vh; background: linear-gradient(rgba(7,26,15,0.8), rgba(7,26,15,0.85)), url('https://picsum.photos/id/1018/2000/1200') center/cover; }
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(212,175,55,0.25), transparent 35%);
+  pointer-events: none; /* Prevents the glow from interfering with clicks */
+}
+.page-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  width: 90%;
+  max-width: 850px;
+  padding: 0;
+}
+.page-hero .hero-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 40vh; /* Replaced fixed height for better mobile responsiveness */
+    padding-top: 80px;
+  }
+}
+
+#hero-admissions { height: 75vh; padding-top: 120px; background: linear-gradient(rgba(7,26,15,0.8), rgba(7,26,15,0.9)), url('https://picsum.photos/id/870/2000/1200') center/cover; }
 .gallery-page-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 
 /* ===== SECTIONS COMMON ===== */

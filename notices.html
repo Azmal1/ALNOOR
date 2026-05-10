@@ -7,7 +7,7 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -48,83 +48,6 @@
     img{
       max-width:100%;
       display:block;
-    }
-
-    /* =========================
-       HERO BANNER
-    ========================== */
-
-    .page-hero{
-      position:relative;
-      height:42vh;
-      min-height:320px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-
-      background:
-      linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.62)),
-      url("img/camimg.jpeg") center center/cover no-repeat;
-    }
-
-    .page-hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-      radial-gradient(circle at top right,
-      rgba(212,175,55,0.25),
-      transparent 35%);
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
-      text-align:center;
-      color:white;
-      width:90%;
-      max-width:850px;
-    }
-
-    .hero-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 22px;
-      border-radius:50px;
-      margin-bottom:18px;
-
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.12);
-      backdrop-filter:blur(10px);
-
-      font-size:13px;
-      letter-spacing:1px;
-      color:#fff;
-    }
-
-    .hero-badge-dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:var(--gold);
-    }
-
-    .hero-h1{
-      font-size:4rem;
-      line-height:1.1;
-      font-family:'Cormorant Garamond',serif;
-      margin-bottom:16px;
-      color:white;
-    }
-
-    .hero-content p{
-      font-size:1rem;
-      line-height:1.8;
-      color:#e5e5e5;
-      max-width:700px;
-      margin:auto;
     }
 
     /* =========================
@@ -450,10 +373,6 @@
 
     @media(max-width:1100px){
 
-      .hero-h1{
-        font-size:3.2rem;
-      }
-
       .about-wrapper,
       .notices-grid{
         grid-template-columns:1fr;
@@ -462,20 +381,6 @@
     }
 
     @media(max-width:768px){
-
-      .page-hero{
-        height:34vh;
-        min-height:260px;
-      }
-
-      .hero-h1{
-        font-size:2.4rem;
-      }
-
-      .hero-content p{
-        font-size:14px;
-        line-height:1.7;
-      }
 
       .section-title h2,
       .about-content h2,
@@ -517,15 +422,6 @@
     }
 
     @media(max-width:480px){
-
-      .hero-h1{
-        font-size:2rem;
-      }
-
-      .hero-badge{
-        font-size:11px;
-        padding:8px 16px;
-      }
 
       .about-content h2,
       .section-title h2,
@@ -582,7 +478,7 @@
         Notices & Upcoming Events
       </h1>
 
-      <p>
+      <p class="hero-sub">
         Stay informed with the latest announcements, Islamic programs,
         academic events, student activities, and campus celebrations.
       </p>
@@ -689,7 +585,7 @@
 
         <div class="notice-small">
 
-          <img src="img/exam.webp" alt="">
+          <img src="img/a12.webp" alt="">
 
           <div class="notice-small-content">
 
@@ -711,7 +607,7 @@
 
         <div class="notice-small">
 
-          <img src="img/graduation.webp" alt="">
+          <img src="img/b2.jpeg" alt="">
 
           <div class="notice-small-content">
 
@@ -774,19 +670,38 @@
     <div class="gallery-grid">
 
       <div class="gallery-item">
-        <img src="img/gallery1.webp" alt="">
+        <img src="img/g7.jpeg" alt="">
       </div>
 
       <div class="gallery-item">
-        <img src="img/gallery2.webp" alt="">
+        <img src="img/g2.jpeg" alt="">
       </div>
 
       <div class="gallery-item">
-        <img src="img/gallery3.webp" alt="">
+        <img src="img/g3.jpeg" alt="">
       </div>
 
       <div class="gallery-item">
-        <img src="img/gallery4.webp" alt="">
+        <img src="img/b2.jpeg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="img/g5.jpeg" alt="">
+      </div>
+      <div class="gallery-item">
+        <img src="img/g6.jpeg" alt="">
+      </div>
+      <div class="gallery-item">
+        <img src="img/b1.jpeg" alt="">
+      </div>
+      <div class="gallery-item">
+        <img src="img/g8.jpeg" alt="">
+      </div>
+      <div class="gallery-item">
+        <img src="img/g9.jpeg" alt="">
+      </div>
+      <div class="gallery-item">
+        <img src="img/g10.jpeg" alt="">
       </div>
 
     </div>
