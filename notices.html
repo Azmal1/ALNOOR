@@ -51,43 +51,6 @@
     }
 
     /* =========================
-       HERO BANNER
-    ========================== */
-
-    .page-hero{
-      position:relative;
-      height:42vh;
-      min-height:320px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-
-      background:
-      linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.62)),
-      url("img/camimg.jpeg") center center/cover no-repeat;
-    }
-
-    .page-hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-      radial-gradient(circle at top right,
-      rgba(212,175,55,0.25),
-      transparent 35%);
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
-      text-align:center;
-      color:white;
-      width:90%;
-      max-width:850px;
-    }
-
-    /* =========================
        ABOUT SECTION
     ========================== */
 
@@ -418,11 +381,6 @@
     }
 
     @media(max-width:768px){
-
-      .page-hero{
-        height:34vh;
-        min-height:260px;
-      }
 
       .section-title h2,
       .about-content h2,
