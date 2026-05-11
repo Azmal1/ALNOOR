@@ -114,7 +114,7 @@
     .highlight-box{
       background:white;
       flex:1;
-      min-width:180px;
+      min-width:min(100%, 180px);
       padding:20px;
       border-radius:22px;
       box-shadow:0 10px 25px rgba(0,0,0,0.05);
@@ -177,6 +177,8 @@
       border-radius:var(--radius);
       overflow:hidden;
       box-shadow:var(--shadow);
+      padding:0;
+      border:none;
     }
 
     .notice-main img{
@@ -259,6 +261,9 @@
       overflow:hidden;
       box-shadow:var(--shadow);
       transition:0.3s;
+      display:block;
+      padding:0;
+      border:none;
     }
 
     .notice-small:hover{
@@ -344,7 +349,7 @@
       margin:auto;
 
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(min(100%, 260px),1fr));
       gap:20px;
     }
 
@@ -354,6 +359,8 @@
       position:relative;
       height:280px;
       box-shadow:var(--shadow);
+      grid-column: auto !important;
+      grid-row: auto !important;
     }
 
     .gallery-item img{
@@ -479,8 +486,8 @@
       </h1>
 
       <p class="hero-sub">
-        Stay informed with the latest announcements, Islamic programs,
-        academic events, student activities, and campus celebrations.
+        Stay connected with important announcements, student activities,
+        Islamic gatherings, academic updates, and events shaping your child’s journey.
       </p>
 
     </div>
