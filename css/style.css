@@ -34,25 +34,25 @@ body {
 /* Custom Cursor */
 .cursor {
   width: 10px; height: 10px;
-  background: var(--gold);
+  background: var(--gold-light);
   border-radius: 50%;
   position: fixed;
   top: 0; left: 0;
   pointer-events: none;
   z-index: 99999;
   transition: transform 0.15s ease;
-  mix-blend-mode: multiply;
+  box-shadow: 0 0 8px rgba(232, 185, 74, 0.8); /* Adds a bright glow */
 }
 .cursor-ring {
   width: 36px; height: 36px;
-  border: 1.5px solid var(--gold);
+  border: 1.5px solid var(--gold-light);
   border-radius: 50%;
   position: fixed;
   top: 0; left: 0;
   pointer-events: none;
   z-index: 99998;
   transition: all 0.35s cubic-bezier(.23,1,.32,1);
-  opacity: 0.6;
+  opacity: 0.85;
 }
 body:hover .cursor, body:hover .cursor-ring { opacity: 1; }
 
@@ -292,13 +292,13 @@ nav.scrolled {
 .hero-h1 em { font-style: italic; color: var(--gold-light); }
 
 .hero-sub {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.838);
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 300;
   line-height: 1.8; /* Increased for readability */
   margin-bottom: 32px; /* Adjusted spacing */
-  max-width: 520px;
-  opacity: 0; transform: translateY(20px);
+  max-width: 720px;
+  opacity: 1; transform: translateY(20px);
   animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 0.7s forwards;
 }
 
@@ -1114,9 +1114,10 @@ section {
   .courses-grid { grid-template-columns: 1fr; }
   .career-grid { grid-template-columns: 1fr; }
   .welfare-grid { grid-template-columns: 1fr; }
-  .library-grid { grid-template-columns: 1fr 1fr; }
+  .library-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
-  .facilities-grid { grid-template-columns: repeat(2, 1fr); }
+  .facilities-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
   .form-field.full { grid-column: span 1; }
   #about, #courses, #notices, #gallery, #admissions, #career, #life, #facilities, #welfare, #library, #contact { padding: 80px 6vw; }
@@ -1131,6 +1132,7 @@ section {
   .admission-form { padding: 28px; }
   .contact-form-wrap { padding: 28px; }
   .about-pillars { grid-template-columns: 1fr; }
+  .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
 }
 
 /* Disable cursor on touch devices */
