@@ -110,7 +110,7 @@
             <span>Call Us</span>
 
             <h4>
-              +91 98765 43210
+              <a href="https://wa.me/919876543210" target="_blank" style="text-decoration: none; color: inherit;">+91 98765 43210</a>
             </h4>
 
             <p>
@@ -134,7 +134,7 @@
             <span>Email Address</span>
 
             <h4>
-              info@alislah.edu.in
+              <a href="mailto:info@alislah.edu.in" style="text-decoration: none; color: inherit;">info@alislah.edu.in</a>
             </h4>
 
             <p>
@@ -165,28 +165,28 @@
 
       </div>
 
-      <form onsubmit="event.preventDefault(); alert('Message Sent Successfully!');">
+      <form onsubmit="sendToWhatsApp(event)">
 
         <div class="modern-form-grid">
 
           <div class="modern-field">
             <label>Full Name</label>
-            <input type="text" placeholder="Enter your name" required>
+            <input type="text" id="contact-name" placeholder="Enter your name" required>
           </div>
 
           <div class="modern-field">
             <label>Phone Number</label>
-            <input type="tel" placeholder="Enter phone number">
+            <input type="tel" id="contact-phone" placeholder="Enter phone number">
           </div>
 
           <div class="modern-field full-width">
             <label>Email Address</label>
-            <input type="email" placeholder="Enter your email" required>
+            <input type="email" id="contact-email" placeholder="Enter your email" required>
           </div>
 
           <div class="modern-field full-width">
             <label>Your Message</label>
-            <textarea placeholder="Write your message here..." required></textarea>
+            <textarea id="contact-message" placeholder="Write your message here..." required></textarea>
           </div>
 
           <div class="full-width">
@@ -251,6 +251,25 @@
   </div>
 
 </section>
+
+<script>
+function sendToWhatsApp(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('contact-name').value;
+  const phone = document.getElementById('contact-phone').value || 'Not provided';
+  const email = document.getElementById('contact-email').value;
+  const message = document.getElementById('contact-message').value;
+  
+  // Replace with your actual WhatsApp number (include country code, without the + sign)
+  const waNumber = "919110668914"; 
+  
+  const text = `Assalamu Alaikum,\n\n*New Inquiry from Website:*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Message:* ${message}`;
+  const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+  
+  window.open(waUrl, '_blank');
+}
+</script>
 
 <!-- =========================
      MODERN CONTACT CSS
