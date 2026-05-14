@@ -176,7 +176,7 @@
 
           <div class="modern-field">
             <label>Phone Number</label>
-            <input type="tel" id="contact-phone" placeholder="Enter phone number">
+            <input type="tel" id="contact-phone" placeholder="Enter phone number" required>
           </div>
 
           <div class="modern-field full-width">
@@ -253,13 +253,50 @@
 </section>
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Clear the custom error tooltips natively as soon as the user starts typing
+  document.getElementById('contact-name').addEventListener('input', function() {
+    this.setCustomValidity('');
+  });
+  document.getElementById('contact-phone').addEventListener('input', function() {
+    this.setCustomValidity('');
+  });
+});
+
 function sendToWhatsApp(event) {
   event.preventDefault();
   
-  const name = document.getElementById('contact-name').value;
-  const phone = document.getElementById('contact-phone').value || 'Not provided';
-  const email = document.getElementById('contact-email').value;
-  const message = document.getElementById('contact-message').value;
+  const nameInput = document.getElementById('contact-name');
+  const phoneInput = document.getElementById('contact-phone');
+  const emailInput = document.getElementById('contact-email');
+  const messageInput = document.getElementById('contact-message');
+  
+  const name = nameInput.value.trim();
+  const phone = phoneInput.value.trim();
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
+  
+  // 1. Explicitly check if Full Name is completely empty
+  if (!name) {
+    nameInput.setCustomValidity('Full Name is required');
+    nameInput.reportValidity();
+    return; // Stop submission
+  }
+  
+  // 2. Explicitly check if Phone is completely empty
+  if (!phone) {
+    phoneInput.setCustomValidity('Phone Number is required');
+    phoneInput.reportValidity();
+    return; // Stop submission
+  }
+  
+  // 3. Explicitly check if there are at least 10 digits
+  const digitCount = (phone.match(/\d/g) || []).length;
+  if (digitCount < 10) {
+    phoneInput.setCustomValidity('At least 10 numbers required');
+    phoneInput.reportValidity();
+    return; // Stop submission
+  }
   
   // Replace with your actual WhatsApp number (include country code, without the + sign)
   const waNumber = "919110668914"; 
