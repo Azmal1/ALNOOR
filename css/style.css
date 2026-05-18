@@ -120,6 +120,7 @@ nav.scrolled {
   padding: 8px 20px !important;
   border-radius: 24px !important;
   box-shadow: 0 4px 16px rgba(200,151,58,0.35);
+  text-decoration: none !important;
   transition: all 0.3s !important;
 }
 .btn-apply:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,151,58,0.45) !important; background: rgba(255,255,255,0.12) !important; }
@@ -248,7 +249,7 @@ nav.scrolled {
 
 .hero-content {
   position: relative; z-index: 10;
-  padding: 0 5vw 100px; /* Keep horizontal padding, add bottom for stats */
+  padding: 0 5vw 40px;
   max-width: 700px;
 }
 
@@ -331,7 +332,7 @@ nav.scrolled {
 .btn-outline:hover { border-color: rgba(255,255,255,0.6); color: white; background: rgba(255,255,255,0.07); }
 
 .hero-stats {
-  position: absolute; bottom: 48px; left: 5vw; right: 5vw;
+  margin-top: 60px;
   display: flex; gap: 48px; z-index: 10;
   opacity: 0; animation: fadeUp 0.9s cubic-bezier(.23,1,.32,1) 1.1s forwards;
 }
@@ -1152,12 +1153,14 @@ section {
   .form-field.full { grid-column: span 1; }
   #about, #courses, #notices, #gallery, #admissions, #career, #life, #facilities, #welfare, #library, #contact { padding: 80px 6vw; }
   footer { padding: 60px 6vw 32px; }
-  .hero-content { text-align: center; padding-bottom: 80px; }
+  .hero-content { text-align: center; padding-bottom: 60px; }
   .hero-h1 { font-size: clamp(2.5rem, 10vw, 3rem); line-height: 1.15; }
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .btn-primary, .btn-outline { padding: 14px 28px; font-size: 0.85rem; }
-  .hero-stats { display: none; }
+  .hero-stats { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; text-align: center; margin-top: 40px; }
+  .hero-stat-num { font-size: 2rem; }
+  .hero-stat-label { font-size: 0.65rem; }
   .scroll-indicator { display: none; }
   .admission-form { padding: 28px; }
   .contact-form-wrap { padding: 28px; }
@@ -1175,6 +1178,20 @@ section {
   }
   .about-quote-box p:nth-of-type(2) {
     font-size: 0.75rem;
+  }
+}
+
+/* Fix for small mobile navbar distortion */
+@media (max-width: 380px) {
+  .nav-logo { gap: 8px; min-width: 0; }
+  .nav-logo-icon { width: 32px; height: 32px; min-width: 32px; font-size: 14px; }
+  .nav-logo-text { overflow: hidden; }
+  .nav-logo-text strong { font-size: 1.1rem; }
+  .nav-logo-text span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
