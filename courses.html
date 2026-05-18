@@ -91,6 +91,65 @@
       color: var(--text-mid);
       margin-bottom: 24px;
     }
+
+    .new-course-card .course-btn {
+      color: var(--forest);
+      border: 1px solid rgba(13, 61, 37, 0.3);
+      display: inline-flex;
+    }
+
+    .new-course-card .course-btn:hover {
+      background: var(--forest);
+      color: white;
+      border-color: var(--forest);
+    }
+
+    /* New Sections Styles */
+    .approach-section {
+      padding: 100px 5vw;
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+    .approach-title {
+      text-align: center;
+      color: white;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 60px;
+    }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+    .approach-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(200,151,58,0.2);
+      padding: 50px 30px;
+      border-radius: 24px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(.23,1,.32,1);
+    }
+    .approach-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255,255,255,0.08);
+      border-color: var(--gold);
+    }
+    .approach-icon { font-size: 3.5rem; color: var(--gold); margin-bottom: 24px; }
+    .approach-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 16px; color: white; }
+    .approach-card p { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+    .course-cta-section { padding: 100px 5vw; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--forest); text-align: center; }
+    .course-cta-wrapper { max-width: 800px; margin: auto; }
+    .course-cta-wrapper h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 24px; font-weight: 600; line-height: 1.1; }
+    .course-cta-wrapper p { font-size: 1.1rem; margin-bottom: 40px; font-weight: 500; opacity: 0.9; }
+    .course-cta-btn { background: var(--forest); color: white; padding: 18px 40px; border-radius: 40px; text-decoration: none; font-weight: 500; font-size: 1rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(13, 61, 37, 0.2); }
+    .course-cta-btn:hover { background: var(--text-dark); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(13, 61, 37, 0.3); color: white; }
   </style>
 </head>
 <body>
@@ -128,7 +187,7 @@
           <div class="new-course-icon">📖</div>
           <div class="new-course-content">
             <h3>Hifz-ul-Qur'an</h3>
-            <div class="new-course-meta">3 Years • Full-time Residential</div>
+            <div class="new-course-meta">After completing 4th standard • Full-time Residential</div>
             <p class="new-course-desc">An intensive program for the complete memorization of the Holy Qur'an, focusing on Tajweed, Tarteel, and foundational understanding under the guidance of expert Huffaz.</p>
             <a href="contact.html" class="course-btn">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
           </div>
@@ -138,7 +197,7 @@
           <div class="new-course-icon">🌿</div>
           <div class="new-course-content">
             <h3>Pre-Alim Course</h3>
-            <div class="new-course-meta">1 Year • Preparatory</div>
+            <div class="new-course-meta">Preparatory</div>
             <p class="new-course-desc">A preparatory course for students aiming to join the Alimiyyah program. It builds a strong foundation in Arabic language, basic Fiqh, and Islamic etiquette.</p>
             <a href="contact.html" class="course-btn">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
           </div>
@@ -161,13 +220,50 @@
           <div class="new-course-icon">💰</div>
           <div class="new-course-content">
             <h3>Specialization in Islamic Finance</h3>
-            <div class="new-course-meta">2 Years • Post-Alimiyyah</div>
+            <div class="new-course-meta">Post-Alimiyyah</div>
             <p class="new-course-desc">An advanced specialization for graduates of the Alimiyyah program, focusing on Islamic economics, banking, and Fiqh al-Muamalat (financial transactions).</p>
-            <a href="contact.html" class="course-btn">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+            <!-- a href="contact.html" class="course-btn">Enroll Now <i class="fa-solid fa-arrow-right"></i></a -->
           </div>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <section class="approach-section">
+    <div class="courses-bg"></div>
+    <div class="approach-title reveal">Our Approach to Education</div>
+    <div class="approach-grid">
+      <div class="approach-card reveal delay-1">
+        <div class="approach-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+        <h3>Traditional Authenticity</h3>
+        <p>Rooted in authentic Islamic teachings, our programs follow trusted scholarly traditions that have guided students and communities for generations.</p>
+      </div>
+      <div class="approach-card reveal delay-2">
+        <div class="approach-icon"><i class="fa-solid fa-microscope"></i></div>
+        <h3>Modern Integration</h3>
+        <p>Alongside Islamic education, students are prepared with academic knowledge, practical skills, and confidence to succeed in today’s world.</p>
+      </div>
+      <div class="approach-card reveal delay-3">
+        <div class="approach-icon"><i class="fa-solid fa-heart"></i></div>
+        <h3>Spiritual Tarbiyah</h3>
+        <p>We focus not only on education, but also on character, discipline, respect, and strong Islamic values that shape everyday life.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="course-cta-section">
+    <div class="course-cta-wrapper reveal">
+      <h2>Shape a Future Rooted in Knowledge & Values</h2>
+      <p>Admissions for the 2026–27 academic year are now open. Give your child an environment that combines Islamic guidance, academic growth, discipline, and character development for a meaningful future.</p>
+      <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+        <a href="https://surveyheart.com/form/5eddf1614c61d73dbce3fbe4" class="course-cta-btn">
+          Apply Online <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="contact.html" class="course-cta-btn" style="background:transparent; border:2px solid var(--forest); color:var(--forest); box-shadow:none;">
+          Contact Admissions
+        </a>
+      </div>
     </div>
   </section>
 
