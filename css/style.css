@@ -498,6 +498,29 @@ section {
 }
 .about-year-badge small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.6rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
 
+.about-quote-box {
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  padding: 40px;
+  max-width: 90%;
+}
+.about-quote-box .fa-mosque {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 24px;
+  color: rgba(255,255,255,0.15);
+}
+.about-quote-box p:nth-of-type(1) {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+.about-quote-box p:nth-of-type(2) {
+  font-size: 0.8rem;
+  margin-top: 12px;
+  opacity: 0.5;
+}
 .about-content {}
 .about-desc {
   font-size: 1.1rem; line-height: 1.8; color: var(--text-mid);
@@ -1104,7 +1127,7 @@ section {
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
   .about-layout, .admissions-layout, .notices-grid, .contact-layout, .life-layout { grid-template-columns: 1fr; }
-  .about-stat-card { left: 0; }
+  .about-stat-card { left: 16px; }
   .about-year-badge { right: 16px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery-item:nth-child(1) { grid-column: span 2; }
@@ -1140,6 +1163,19 @@ section {
   .contact-form-wrap { padding: 28px; }
   .about-pillars { grid-template-columns: 1fr; }
   .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+  .about-quote-box {
+    padding: 24px 16px;
+  }
+  .about-quote-box .fa-mosque {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+  }
+  .about-quote-box p:nth-of-type(1) {
+    font-size: 1.1rem;
+  }
+  .about-quote-box p:nth-of-type(2) {
+    font-size: 0.75rem;
+  }
 }
 
 /* Disable cursor on touch devices */
