@@ -9,7 +9,88 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
+    .courses-page-section {
+      padding: 120px 5vw;
+      background: var(--cream);
+    }
 
+    .courses-page-wrapper {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .course-category-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--forest);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding-bottom: 16px;
+      margin-bottom: 40px;
+      margin-top: 60px;
+    }
+    .course-category-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .courses-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .new-course-card {
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 30px;
+      align-items: center;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: all 0.35s cubic-bezier(.23,1,.32,1);
+    }
+
+    .new-course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(13, 61, 37, 0.12);
+      border-color: var(--forest-mid);
+    }
+
+    .new-course-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      background: var(--parchment);
+      color: var(--forest);
+    }
+
+    .new-course-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .new-course-meta {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .new-course-desc {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+      margin-bottom: 24px;
+    }
   </style>
 </head>
 <body>
@@ -38,26 +119,55 @@
 
   </section>
 
-  <section style="padding:120px 5vw; background:var(--cream);">
-    <div class="courses-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap:30px;">
-      
-      <div class="course-card reveal" style="background:white; border:none; box-shadow:0 20px 50px rgba(0,0,0,0.1);">
-        <div class="course-icon-wrap" style="background:linear-gradient(135deg,#c8973a,#e8b94a); color:white; font-size:2.2rem;">📖</div>
-        <div class="course-name">Hifz-ul-Qur'an</div>
-        <div class="course-meta">3 Years • Residential</div>
-        <div class="course-desc">Complete memorization of the Holy Qur'an with Tajweed, Tarteel, and basic Tafseer under expert Huffaz.</div>
-        <button class="course-btn" style="background:var(--forest); color:white;">Enroll Now</button>
+  <section class="courses-page-section">
+    <div class="courses-page-wrapper">
+
+      <div class="course-category-title">Foundational Programs</div>
+      <div class="courses-list">
+        <div class="new-course-card reveal">
+          <div class="new-course-icon">📖</div>
+          <div class="new-course-content">
+            <h3>Hifz-ul-Qur'an</h3>
+            <div class="new-course-meta">3 Years • Full-time Residential</div>
+            <p class="new-course-desc">An intensive program for the complete memorization of the Holy Qur'an, focusing on Tajweed, Tarteel, and foundational understanding under the guidance of expert Huffaz.</p>
+            <a href="contact.html" class="course-btn">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="new-course-card reveal delay-1">
+          <div class="new-course-icon">🌿</div>
+          <div class="new-course-content">
+            <h3>Pre-Alim Course</h3>
+            <div class="new-course-meta">1 Year • Preparatory</div>
+            <p class="new-course-desc">A preparatory course for students aiming to join the Alimiyyah program. It builds a strong foundation in Arabic language, basic Fiqh, and Islamic etiquette.</p>
+            <a href="contact.html" class="course-btn">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
       </div>
 
-      <div class="course-card reveal delay-1" style="background:white; border:none; box-shadow:0 20px 50px rgba(0,0,0,0.1);">
-        <div class="course-icon-wrap" style="background:linear-gradient(135deg,#166534,#1e8449); color:white; font-size:2.2rem;">🕌</div>
-        <div class="course-name">Alimiyyah Program</div>
-        <div class="course-meta">5-6 Years • Advanced</div>
-        <div class="course-desc">In-depth study of Fiqh, Hadith, Aqeedah, Arabic, and Islamic History.</div>
-        <button class="course-btn" style="background:var(--forest); color:white;">Enroll Now</button>
+      <div class="course-category-title">Advanced & Integrated Programs</div>
+      <div class="courses-list">
+        <div class="new-course-card reveal">
+          <div class="new-course-icon">🕌</div>
+          <div class="new-course-content">
+            <h3>Alimiyyah & B.A./B.Com.</h3>
+            <div class="new-course-meta">5-8 Years • Integrated Degree</div>
+            <p class="new-course-desc">A comprehensive program combining in-depth study of Fiqh, Hadith, Tafseer, and Aqeedah with a contemporary university degree (B.A. or B.Com.).</p>
+            <a href="contact.html" class="course-btn">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="new-course-card reveal delay-1">
+          <div class="new-course-icon">💰</div>
+          <div class="new-course-content">
+            <h3>Specialization in Islamic Finance</h3>
+            <div class="new-course-meta">2 Years • Post-Alimiyyah</div>
+            <p class="new-course-desc">An advanced specialization for graduates of the Alimiyyah program, focusing on Islamic economics, banking, and Fiqh al-Muamalat (financial transactions).</p>
+            <a href="contact.html" class="course-btn">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
       </div>
 
-      <!-- Add more cards similarly -->
     </div>
   </section>
 
