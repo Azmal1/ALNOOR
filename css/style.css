@@ -648,10 +648,15 @@ section {
   margin-top: 56px;
 }
 .notice-main {
-  background: white; border-radius: 28px; padding: 48px;
-  position: relative; overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.06);
+  background: white; border-radius: 28px;
+  ;order: 1px solid rgba(0,0,0,0.06);
   transition: all 0.35s;
+}
+.notice-main img {
+  width: 100%; height: 320px; object-fit: cover; display: block;
+}
+.notice-content {
+  padding: 35px;
 }
 .notice-main:hover { box-shadow: 0 24px 60px rgba(13,61,37,0.1); transform: translateY(-4px); }
 .notice-date-big {
@@ -690,10 +695,15 @@ section {
 
 .notices-sidebar { display: flex; flex-direction: column; gap: 20px; }
 .notice-small {
-  background: white; border-radius: 20px; padding: 28px;
+  background: white; border-radius: 20px; display: block; overflow: hidden;
   border: 1px solid rgba(0,0,0,0.06);
   transition: all 0.35s; cursor: default;
-  display: flex; gap: 20px; align-items: flex-start;
+}
+.notice-small img {
+  width: 100%; height: 190px; object-fit: cover; display: block;
+}
+.notice-small-content {
+  padding: 24px;
 }
 .notice-small:hover { box-shadow: 0 12px 40px rgba(13,61,37,0.08); transform: translateX(4px); }
 .notice-date-block {
@@ -1128,6 +1138,9 @@ section {
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
   .about-layout, .admissions-layout, .notices-grid, .contact-layout, .life-layout { grid-template-columns: 1fr; }
+  .notice-main img { height: 240px; }
+  .notice-small img { height: 180px; }
+  .notice-content, .notice-small-content { padding: 24px; }
   .about-stat-card { left: 16px; }
   .about-year-badge { right: 16px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
