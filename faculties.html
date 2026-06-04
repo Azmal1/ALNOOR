@@ -172,42 +172,47 @@
 
     </div>
 
-    <!-- CARD 4 -->
-
-    <!-- <div class="faculty-card">
-
-      <div class="faculty-image">
-
-        <img src="img/faculty4.jpg" alt="">
-
-        <div class="faculty-overlay">
-          <div class="faculty-social">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-          </div>
-        </div>
-
-      </div>
-
+    <!-- CARD 4 (No Image Template) -->
+    <div class="faculty-card no-image-card">
       <div class="faculty-content">
-
+        <div class="faculty-icon-placeholder">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
         <span class="faculty-role">
-          Quran Instructor
+          General Secretary
         </span>
+        <h3>Dr Syed Ihtisham Yousuf</h3>
+        <p>Providing leadership and administrative support to ensure the smooth functioning, development, and continued progress of the institution.</p>
+      </div>
+    </div>
 
-        <h3>
-          Mufti Kalimudeen
-        </h3>
-
-        <p>
-          Guiding students in Tajweed and Hifz with discipline,
-          spirituality, and dedication.
-        </p>
-
+      <!-- CARD 5 (No Image Template) -->
+      <div class="faculty-card no-image-card">
+        <div class="faculty-content">
+          <div class="faculty-icon-placeholder">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <span class="faculty-role">
+            H.O.D : ISLAMIC STUDIES.
+          </span>
+          <h3>Hafiz Qari Muhammad Irfan </h3>
+          <p>Leading the Islamic Studies department with a commitment to authentic Islamic education, academic excellence, and the holistic development of students.</p>
+        </div>
       </div>
 
-    </div> -->
+    <!-- CARD 6 (No Image Template) -->
+    <div class="faculty-card no-image-card">
+      <div class="faculty-content">
+        <div class="faculty-icon-placeholder">
+          <i class="fa-solid fa-book-quran"></i>
+        </div>
+        <span class="faculty-role">
+          Hifz Instructor
+        </span>
+        <h3>Hafiz Salman</h3>
+        <p>Helping students memorize the Holy Qur'an with accuracy, proper Tajweed, discipline, and consistent encouragement throughout their Hifz journey.</p>
+      </div>
+    </div>
 
   </div>
 
@@ -277,7 +282,7 @@
   margin:auto;
 
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%, 280px),1fr));
+  grid-template-columns:repeat(3, 1fr);
   gap:30px;
 
   position:relative;
@@ -405,6 +410,36 @@
   font-size:14px;
 }
 
+/* NO IMAGE CARD STYLES */
+.no-image-card {
+  display:flex;
+  flex-direction:column;
+}
+
+.no-image-card .faculty-content {
+  padding:40px 30px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  text-align:center;
+}
+
+.faculty-icon-placeholder {
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#0d3d25,#14532d);
+  color:white;
+  font-size:2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:24px;
+  box-shadow:0 10px 25px rgba(13,61,37,0.2);
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
@@ -415,6 +450,9 @@
     font-size:3rem;
   }
 
+  .faculty-grid {
+    grid-template-columns:repeat(2, 1fr);
+  }
 }
 
 @media(max-width:768px){
@@ -433,6 +471,10 @@
 
   .faculty-image{
     height:300px;
+  }
+
+  .faculty-grid {
+    grid-template-columns:1fr;
   }
 
 }
