@@ -201,11 +201,15 @@ function filterCategory(category) {
   });
 
   // Active button styling
-  document.querySelectorAll('button').forEach(btn => {
-    btn.classList.remove('bg-teal-700', 'text-white');
-    if ((category === 'all' && btn.textContent.includes('All')) || 
-        btn.textContent.toLowerCase().includes(category)) {
-      btn.classList.add('bg-teal-700', 'text-white');
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    // Reset all buttons to inactive state
+    btn.classList.remove('bg-teal-700', 'text-white', 'hover:bg-teal-800');
+    btn.classList.add('bg-white/70', 'text-gray-800', 'hover:bg-white', 'glass-card');
+    
+    // Apply active state to the selected button
+    if (btn.getAttribute('data-filter') === category) {
+      btn.classList.remove('bg-white/70', 'text-gray-800', 'hover:bg-white', 'glass-card');
+      btn.classList.add('bg-teal-700', 'text-white', 'hover:bg-teal-800');
     }
   });
 }
