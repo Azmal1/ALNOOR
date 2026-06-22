@@ -119,7 +119,7 @@ if (grid) {
     { alt: "Hostel life", emoji: "🏠", color: "#2e4057" },
     { alt: "Community iftar", emoji: "🌙", color: "#1b2631" }
   ];
-  const images = ["img/a4.webp", "img/a2.webp", "img/a17.webp", "img/a1.webp", "img/a12.webp", "img/a14.webp", "img/a18.webp", "img/a8.webp"];
+  const images = ["img/a4.webp", "img/m2.jpeg", "img/a17.webp", "img/a1.webp", "img/a12.webp", "img/a14.webp", "img/a18.webp", "img/a2.webp"];
   galleryData.forEach((item, i) => {
     const div = document.createElement('div');
     div.className = 'gallery-item';
