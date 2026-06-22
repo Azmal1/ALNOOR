@@ -28,7 +28,6 @@ body {
   color: var(--text-dark);
   overflow-x: hidden;
   max-width: 100%; /* Strictly contain to viewport minus vertical scrollbar */
-  cursor: none;
 }
 
 /* Custom Cursor */
@@ -55,6 +54,12 @@ body {
   opacity: 0.85;
 }
 body:hover .cursor, body:hover .cursor-ring { opacity: 1; }
+
+/* Ensure all links are clickable */
+a {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }

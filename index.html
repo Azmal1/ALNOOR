@@ -11,7 +11,43 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<style>
+  .life-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
 
+.life-highlight {
+  background: rgba(125, 135, 222, 0.523);
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.life-highlight:hover {
+  transform: translateY(-5px);
+}
+
+.highlight-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.highlight-title {
+  margin: 0.5rem 0;
+  color: #000000;
+  font-size: 1.25rem;
+}
+
+.highlight-desc {
+  color: #030303;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+</style>
 <!-- Custom Cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
@@ -354,21 +390,32 @@
         <div class="life-quote-mark">"</div>
         <p class="life-quote">"An environment that encourages strong character, Islamic values, discipline, and a lifelong connection with knowledge and faith."</p>
         <!-- div class="life-quote-author">— Mohammad Zihan, Class of 2025</div -->
-      </div>
-      <div class="life-times">
-        <div class="life-time">
-          <span class="life-time-label">Daily Fajr Congregation</span>
-          <span class="life-time-val">5:30 AM</span>
         </div>
-        <div class="life-time">
-          <span class="life-time-label">Weekly Anjuman</span>
-          <span class="life-time-val">Every Saturday 3 PM</span>
+          <div class="life-highlights">
+          <div class="life-highlight">
+            <div class="highlight-icon">🕌</div>
+            <h4 class="highlight-title">Spiritual Growth</h4>
+            <p class="highlight-desc">Daily congregational prayers, Qur’an memorization circles, and nightly reminders that nurture faith and inner discipline.</p>
+          </div>
+          
+          <div class="life-highlight">
+            <div class="highlight-icon">📚</div>
+            <h4 class="highlight-title">Knowledge & Learning</h4>
+            <p class="highlight-desc">Evening study sessions, access to a rich library, and intellectual discussions that build both academic excellence and Islamic understanding.</p>
+          </div>
+          
+          <div class="life-highlight">
+            <div class="highlight-icon">🤝</div>
+            <h4 class="highlight-title">Brotherhood & Character</h4>
+            <p class="highlight-desc">A close-knit community that fosters accountability, mutual support, and the development of strong moral character.</p>
+          </div>
+          
+          <div class="life-highlight">
+            <div class="highlight-icon">🌱</div>
+            <h4 class="highlight-title">Holistic Development</h4>
+            <p class="highlight-desc">Sports, skill-building workshops, leadership opportunities, and regular mentorship from scholars and seniors.</p>
+          </div>
         </div>
-        <div class="life-time">
-          <span class="life-time-label">Monthly Guest Scholars</span>
-          <span class="life-time-val">Last Sunday</span>
-        </div>
-      </div>
     </div>
     <div class="life-visual-grid reveal-right">
       <div class="life-visual-cell" style="overflow: hidden;">
@@ -502,11 +549,11 @@
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Call Us</div>
-          <div class="contact-item-val"><a href="tel:+919876543210">+91 9986239518</a></div>
+          <div class="contact-item-val"><a href="tel:+919740730449">+91 9740730449</a></div>
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Email</div>
-          <div class="contact-item-val"><a href="mailto:info@alnoormadrasa.edu.in">info@alnoormadrasa.edu.in</a></div>
+          <div class="contact-item-val"><a href="mailto:residentialcollegealislah@gmail.com">residentialcollegealislah@gmail.com</a></div>
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Office Hours</div>

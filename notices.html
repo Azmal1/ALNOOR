@@ -28,6 +28,73 @@
       --radius:28px;
     }
 
+    /* Notice Slider Section */
+    .notice-slider-section {
+      padding: 80px 0;
+      background: var(--light);
+    }
+    .notice-slider {
+      width: 100%;
+      overflow: hidden;
+      position: relative; /* For positioning arrows */
+      -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+      mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+    }
+    .notice-slider-track {
+      display: flex;
+      /* Animation is now handled by JavaScript */
+      transition: transform 0.5s ease-in-out;
+    }
+    .notice-slide {
+      width: 340px;
+      flex-shrink: 0;
+      padding: 0 20px;
+    }
+    .notice-slide img {
+      width: 100%;
+      height: auto;
+      max-height: 480px; /* Controls the slider height */
+      object-fit: contain; /* Ensures the whole image is visible */
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+      user-select: none; /* Prevents image selection on drag */
+      pointer-events: none; /* Prevents image drag ghosting */
+    }
+
+    /* Slider Arrows */
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+      color: var(--primary);
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+      display: none; /* Hidden by default, shown on desktop */
+    }
+    .slider-arrow:hover {
+      background: white;
+      color: var(--gold);
+    }
+    .prev-arrow { left: 3%; }
+    .next-arrow { right: 3%; }
+
+    @media (min-width: 901px) { /* Show arrows on desktop */
+      .slider-arrow {
+        display: block;
+      }
+    }
+    @media (max-width: 768px) {
+      .notice-slide { width: 280px; padding: 0 15px; }
+    }
+
     *{
       margin:0;
       padding:0;
@@ -633,6 +700,20 @@
 
   </section>
 
+  <!-- NOTICE SLIDER -->
+  <section class="notice-slider-section">
+    <div class="notice-slider">
+      <div class="notice-slider-track">
+        <div class="notice-slide"><img src="img/n1.jpeg" alt="Notice 1"></div>
+        <div class="notice-slide"><img src="img/n2.jpeg" alt="Notice 2"></div>
+        <div class="notice-slide"><img src="img/n3.jpeg" alt="Notice 3"></div>
+        <div class="notice-slide"><img src="img/n4.jpeg" alt="Notice 4"></div>
+      </div>
+      <button class="slider-arrow prev-arrow" aria-label="Previous Slide">&#10094;</button>
+      <button class="slider-arrow next-arrow" aria-label="Next Slide">&#10095;</button>
+    </div>
+  </section>
+
   <!-- VIDEO SECTION -->
 
   <section class="video-section">
@@ -715,5 +796,115 @@
   <script src="js/include.js"></script>
   <script src="js/main.js"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.querySelector('.notice-slider');
+      if (!slider) return;
+
+      const track = slider.querySelector('.notice-slider-track');
+      const nextButton = slider.querySelector('.next-arrow');
+      const prevButton = slider.querySelector('.prev-arrow');
+      
+      let slides = Array.from(track.children);
+      if (slides.length === 0) return;
+
+      // --- Setup for Seamless Loop ---
+      const slideCount = slides.length;
+      const firstClone = slides[0].cloneNode(true);
+      const lastClone = slides[slideCount - 1].cloneNode(true);
+      track.appendChild(firstClone);
+      track.insertBefore(lastClone, slides[0]);
+
+      slides = Array.from(track.children); // Update slides array with clones
+      let slideWidth = slides[0].getBoundingClientRect().width;
+      
+      let currentIndex = 1; // Start at the first "real" slide
+      let isDragging = false;
+      let startPos = 0;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
+      let autoScrollInterval;
+
+      function setSliderPosition(instant = false) {
+        track.style.transition = instant ? 'none' : 'transform 0.5s ease-in-out';
+        currentTranslate = -currentIndex * slideWidth;
+        track.style.transform = `translateX(${currentTranslate}px)`;
+      }
+
+      function updateSlideWidth() {
+        slideWidth = slides[0].getBoundingClientRect().width;
+        setSliderPosition(true);
+      }
+
+      window.addEventListener('resize', updateSlideWidth);
+      
+      // --- Auto & Manual Scroll ---
+      const moveToNextSlide = () => { currentIndex++; setSliderPosition(); };
+      const moveToPrevSlide = () => { currentIndex--; setSliderPosition(); };
+
+      const startAutoScroll = () => {
+        stopAutoScroll();
+        autoScrollInterval = setInterval(moveToNextSlide, 3000);
+      };
+      const stopAutoScroll = () => clearInterval(autoScrollInterval);
+
+      nextButton.addEventListener('click', moveToNextSlide);
+      prevButton.addEventListener('click', moveToPrevSlide);
+
+      // --- Seamless Loop Check ---
+      track.addEventListener('transitionend', () => {
+        if (currentIndex <= 0) {
+          currentIndex = slideCount;
+          setSliderPosition(true);
+        }
+        if (currentIndex >= slideCount + 1) {
+          currentIndex = 1;
+          setSliderPosition(true);
+        }
+      });
+
+      // --- Touch/Drag Logic ---
+      const getPositionX = e => e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+
+      const dragStart = e => {
+        isDragging = true;
+        startPos = getPositionX(e);
+        prevTranslate = currentTranslate;
+        track.style.transition = 'none';
+        stopAutoScroll();
+      };
+
+      const drag = e => {
+        if (isDragging) {
+          const currentPosition = getPositionX(e);
+          currentTranslate = prevTranslate + currentPosition - startPos;
+          track.style.transform = `translateX(${currentTranslate}px)`;
+        }
+      };
+
+      const dragEnd = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        const movedBy = currentTranslate - prevTranslate;
+        if (movedBy < -50) currentIndex++;
+        if (movedBy > 50) currentIndex--;
+        setSliderPosition();
+      };
+
+      slider.addEventListener('mousedown', dragStart);
+      slider.addEventListener('touchstart', dragStart, { passive: true });
+      slider.addEventListener('mouseup', dragEnd);
+      slider.addEventListener('touchend', dragEnd);
+      slider.addEventListener('mouseleave', dragEnd);
+      slider.addEventListener('mousemove', drag);
+      slider.addEventListener('touchmove', drag, { passive: true });
+
+      slider.addEventListener('mouseenter', stopAutoScroll);
+      slider.addEventListener('mouseleave', startAutoScroll);
+
+      setSliderPosition(true);
+      startAutoScroll();
+    });
+  </script>
 </body>
 </html>
