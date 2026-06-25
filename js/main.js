@@ -178,12 +178,13 @@ function handleSubmit(e, wrapId) {
 // ===== SMOOTH SCROLL =====
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href^="#"]');
-  if (a) {
+  // Only act on links that are for on-page anchors, and not just a hash.
+  if (a && a.getAttribute('href').length > 1) {
     e.preventDefault();
     const targetId = a.getAttribute('href');
-    if (targetId && targetId !== '#') {
-      const target = document.querySelector(targetId);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const target = document.querySelector(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 });
@@ -311,5 +312,44 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeGalleryLightbox();
     if (e.key === 'ArrowLeft') prevImage();
     if (e.key === 'ArrowRight') nextImage();
+  }
+});
+
+// ===== SMART MAILTO LINKS =====
+// This script checks if the user is on a desktop. If so, it changes mailto: links
+// to open Gmail's compose window in a new tab. On mobile, it keeps the default
+// mailto: behavior, which allows opening native mail apps like the Gmail app.
+document.addEventListener('DOMContentLoaded', () => {
+  const isDesktop = !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  if (isDesktop) {
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+      // We'll override the click behavior for desktops to use Gmail directly.
+      link.addEventListener('click', (e) => {
+        // Prevent the default mailto: action.
+        e.preventDefault();
+
+        const mailtoHref = link.getAttribute('href');
+        // Extract the email address from the mailto link
+        const mailtoParts = mailtoHref.match(/mailto:([^?]+)/);
+        if (!mailtoParts) {
+          // If the link is malformed, open it as is
+          window.open(mailtoHref, '_blank', 'noopener,noreferrer');
+          return;
+        }
+        const email = mailtoParts[1];
+
+        // Define a pre-filled subject and body
+        const subject = 'Inquiry from Al-Islah Website';
+        const body = 'Assalamu Alaikum,\n\nI would like to inquire about...';
+
+        // Construct the Gmail URL to open the compose window with pre-filled text.
+        let gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(email)}`;
+        gmailUrl += `&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        // Open the Gmail compose window in a new tab.
+        window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+      });
+    });
   }
 });
