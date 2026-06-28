@@ -117,9 +117,11 @@ if (grid) {
     { alt: "Graduation", emoji: "🎓", color: "#4a235a" },
     { alt: "Sports day", emoji: "⚽", color: "#1a4a6b" },
     { alt: "Hostel life", emoji: "🏠", color: "#2e4057" },
-    { alt: "Community iftar", emoji: "🌙", color: "#1b2631" }
+    { alt: "Community iftar", emoji: "🌙", color: "#1b2631" },
+    { alt: "Student Portrait", emoji: "🧑‍🎓", color: "#2980B9" },
+    { alt: "Campus Event", emoji: "🎉", color: "#8E44AD" }
   ];
-  const images = ["img/a4.webp", "img/a2.webp", "img/a17.webp", "img/a1.webp", "img/a12.webp", "img/a14.webp", "img/a18.webp", "img/a8.webp"];
+  const images = ["img/a4.webp", "img/a2.webp", "img/a17.webp", "img/a1.webp", "img/a12.webp", "img/a14.webp", "img/a18.webp", "img/a8.webp", "img/P1.jpeg", "img/P2.jpeg"];
   galleryData.forEach((item, i) => {
     const div = document.createElement('div');
     div.className = 'gallery-item';
