@@ -111,15 +111,15 @@ const grid = document.getElementById('gallery-grid');
 if (grid) {
   const galleryData = [
     { alt: "Students in class", emoji: "📚", color: "#0d3d25" },
-    { alt: "Prayer hall", emoji: "🕌", color: "#166534" },
+    { alt: "Student Assembly", emoji: "🕌", color: "#166534" },
     { alt: "Library", emoji: "📖", color: "#1a5276" },
-    { alt: "Campus garden", emoji: "🌳", color: "#145a32" },
+    { alt: "Campus View", emoji: "🌳", color: "#145a32" },
     { alt: "Graduation", emoji: "🎓", color: "#4a235a" },
     { alt: "Sports day", emoji: "⚽", color: "#1a4a6b" },
-    { alt: "Hostel life", emoji: "🏠", color: "#2e4057" },
-    { alt: "Community iftar", emoji: "🌙", color: "#1b2631" },
-    { alt: "Student Portrait", emoji: "🧑‍🎓", color: "#2980B9" },
-    { alt: "Campus Event", emoji: "🎉", color: "#8E44AD" }
+    { alt: "Classroom", emoji: "🏠", color: "#2e4057" },
+    { alt: "Community Gathering", emoji: "🌙", color: "#1b2631" },
+    { alt: "Campus View 2", emoji: "🧑‍🎓", color: "#2980B9" },
+    { alt: "Masjid View", emoji: "🎉", color: "#8E44AD" }
   ];
   const images = ["img/a4.webp", "img/a2.webp", "img/a17.webp", "img/a1.webp", "img/a12.webp", "img/a14.webp", "img/a18.webp", "img/a8.webp", "img/P1.jpeg", "img/P2.jpeg"];
   galleryData.forEach((item, i) => {
