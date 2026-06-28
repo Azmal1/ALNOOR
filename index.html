@@ -47,6 +47,39 @@
   line-height: 1.6;
   font-size: 0.95rem;
 }
+
+  .scholarship-notice-banner {
+    background: var(--gold);
+    color: var(--forest);
+    padding: 25px 5vw;
+    text-align: center;
+  }
+  .scholarship-notice-content {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .scholarship-notice-content i {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+  .scholarship-notice-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 400;
+    text-align: left;
+  }
+  .scholarship-notice-content p strong {
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    .scholarship-notice-content { flex-direction: column; text-align: center; gap: 15px; }
+    .scholarship-notice-content p { text-align: center; font-size: 1rem; }
+  }
 </style>
 <!-- Custom Cursor -->
 <div class="cursor" id="cursor"></div>
@@ -494,6 +527,16 @@
   </div>
 </section>
 
+<!-- SCHOLARSHIP NOTICE -->
+<section class="scholarship-notice-banner">
+  <div class="scholarship-notice-content">
+    <i class="fa-solid fa-hands-holding-child"></i>
+    <p>
+      <strong>Scholarship Opportunity:</strong> Partial or full scholarships are available for eligible and deserving students. Please contact the administration for more details.
+    </p>
+  </div>
+</section>
+
 <!-- LIBRARY -->
 <section id="library">
   <div class="library-header">
@@ -600,7 +643,6 @@
 <section id="key-contact" class="banner-section">
   <div class="banner-bg"></div>
   <div class="banner-grid">
-    <!-- Person 1 -->
     <div class="banner-card reveal">
       <div class="banner-person">
         <div class="banner-avatar">
@@ -618,26 +660,44 @@
       </div>
     </div>
 
-    <!-- Person 2 -->
+    <!-- Vice Chairman -->
     <div class="banner-card reveal delay-1">
       <div class="banner-person">
         <div class="banner-avatar">
-          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-user-check"></i>
         </div>
         <div>
-          <div class="banner-designation">Secretary</div>
+          <div class="banner-designation">Vice Chairman</div>
           <h3 class="banner-name">R. M. Siddiq</h3>
         </div>
       </div>
       <div>
-        <a href="tel:+919986239518" class="banner-contact-btn">
+        <a href="tel:+910000000000" class="banner-contact-btn">
           <i class="fa-solid fa-phone"></i> +91 97407 30449
         </a>
       </div>
     </div>
 
-    <!-- Person 3 -->
+    <!-- General Secretary -->
     <div class="banner-card reveal delay-2">
+      <div class="banner-person">
+        <div class="banner-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+          <div class="banner-designation">General Secretary</div>
+          <h3 class="banner-name">Dr Syed Ihtisham Yousuf</h3>
+        </div>
+      </div>
+      <div>
+        <a href="tel:+919740730449" class="banner-contact-btn">
+          <i class="fa-solid fa-phone"></i> +91 97407 30449
+        </a>
+      </div>
+    </div>
+
+    <!-- Warden -->
+    <div class="banner-card reveal delay-3">
       <div class="banner-person">
         <div class="banner-avatar">
           <i class="fa-solid fa-user-shield"></i>
@@ -648,14 +708,14 @@
         </div>
       </div>
       <div>
-        <a href="tel:+919986239518" class="banner-contact-btn">
+        <a href="tel:+917975330962" class="banner-contact-btn">
           <i class="fa-solid fa-phone"></i> +91 79 7533 0962
         </a>
       </div>
     </div>
 
-    <!-- Person 4 -->
-    <div class="banner-card reveal delay-3">
+    <!-- Admissions -->
+    <div class="banner-card reveal delay-4">
       <div class="banner-person">
         <div class="banner-avatar">
           <i class="fa-solid fa-headset"></i>
@@ -666,7 +726,7 @@
         </div>
       </div>
       <div>
-        <a href="tel:+919986239518" class="banner-contact-btn">
+        <a href="tel:+919353468047" class="banner-contact-btn">
           <i class="fa-solid fa-phone"></i> +91 9353468047
         </a>
       </div>
@@ -709,10 +769,10 @@ function sendToWhatsAppIndex(event) {
     return;
   }
   
-  // Replace with your actual WhatsApp number (include country code, without the + sign)
-  const waNumber = "919110668914"; 
+  // WhatsApp number (include country code, without the + sign)
+  const waNumber = "919740730449"; 
   
-  const text = `Assalamu Alaikum,\n\n*New Inquiry from Website (Home Page):*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Message:* ${message}`;
+  const text = `Assalamu Alaikum,\n\n*New Inquiry from Al-Islah Residential College Website (Home Page):*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Message:* ${message}`;
   const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
   
   window.open(waUrl, '_blank');
